@@ -18,14 +18,31 @@ enum Sign {
     }
 }
 
-struct Card: CustomStringConvertible {
+struct Card: Equatable, CustomStringConvertible {
     var description: String {
         return "\(signs)"
     }
-    
     var signs: [Sign]
     var isMatched: Bool = false
     var isChoosen: Bool = false
+    var isHint: Bool = false
+    var identifier: Int
+    
+    init(signs: [Sign]) {
+        self.signs = signs
+        identifier = Card.getIdentifier()
+    }
+    
+    private static var identifier = 0
+    private static func getIdentifier() -> Int {
+        let copy = identifier
+        identifier += 1
+        return copy
+    }
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
 }
 
 extension Array where Element == Card {

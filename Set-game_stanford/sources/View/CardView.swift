@@ -16,17 +16,10 @@ fileprivate struct CardViewSign {
 }
 
 class CardView: UIView {
-    private var cardSign: CardViewSign! {
-        didSet { setNeedsDisplay() }
-    }
-    
-    var isChoosen = false {
-        didSet { setNeedsDisplay() }
-    }
-    
-    var isVisible = false {
-        didSet { setNeedsDisplay() }
-    }
+    private var cardSign: CardViewSign! { didSet { setNeedsDisplay() } }
+    var isChoosen = false { didSet { setNeedsDisplay() } }
+    var isVisible = false { didSet { setNeedsDisplay() } }
+    var isHint = false { didSet { setNeedsLayout() } }
     
     private var figureStack: UIStackView {
         let figureStack = UIStackView(arrangedSubviews: figures)
@@ -85,6 +78,13 @@ class CardView: UIView {
         roundedRect.addClip()
         UIColor.white.setFill()
         roundedRect.fill()
+        
+        if isHint {
+            UIColor.blue.setStroke()
+            roundedRect.lineWidth = 10.0
+            roundedRect.stroke()
+        }
+        
         if isChoosen {
             UIColor.red.setStroke()
             roundedRect.lineWidth = 10.0
@@ -93,8 +93,6 @@ class CardView: UIView {
             
         figureStack.draw(bounds)
         figureStack.frame = bounds
-            
-        return
     }
 }
 

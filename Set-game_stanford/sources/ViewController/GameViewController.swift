@@ -8,6 +8,8 @@
 
 import UIKit
 
+fileprivate var initialCardCount = 12
+
 class GameViewController: UIViewController {
     @IBOutlet var cardRows: [UIStackView]!
     @IBOutlet var deckCardCountLabel: UILabel!
@@ -19,17 +21,28 @@ class GameViewController: UIViewController {
         updateViewWithModel()
     }
     
+    @IBAction func onHintTapped(_ sender: UIButton) {
+        game.hint()
+        updateViewWithModel()
+    }
+    
+    @IBAction func onStartNewGameTapped(_ sender: UIButton) {
+        game.startNewGame(initialCardCount: initialCardCount)
+        updateViewWithModel()
+    }
+    
     private lazy var cards: [CardView] = {
         let cards = cardRows.reduce([UIView](), { $0 + $1.subviews }).map{ $0 as! CardView }
         return cards
     }()
     
-    private var game: Game = Game(initialCardCount: 12)
+    private var game: Game = Game(initialCardCount: initialCardCount)
     
     @objc func handleCardTap(sender: UITapGestureRecognizer) {
         guard
             let tappedCard = sender.view as? CardView,
-            let indexTappedCard = cards.firstIndex(of: tappedCard)
+            let indexTappedCard = cards.firstIndex(of: tappedCard),
+            indexTappedCard < game.cards.count
         else { return }
         
         game.chooseCard(withIndex: indexTappedCard)
@@ -38,6 +51,7 @@ class GameViewController: UIViewController {
     
     private func updateViewWithModel() {
         deckCardCountLabel.text = "Deck: \(game.deck.count)"
+        scoreLabel.text = "Score: \(game.score)"
         for (index, card) in cards.enumerated() {
             if index < game.cards.count {
                 if game.cards[index].isMatched {
@@ -48,6 +62,7 @@ class GameViewController: UIViewController {
                 card.applySigns(colorSign: signs[0], fillingSign: signs[1], figureSign: signs[2], figureCountSign: signs[3])
                 card.isChoosen = game.cards[index].isChoosen
                 card.isVisible = true
+                card.isHint = game.cards[index].isHint
             } else {
                 card.isVisible = false
             }
