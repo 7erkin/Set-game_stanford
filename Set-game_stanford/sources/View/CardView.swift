@@ -8,46 +8,93 @@
 
 import UIKit
 
+fileprivate struct CardViewSign {
+    var figureColor: UIColor
+    var filling: Filling
+    var figure: Figure
+    var figureCount: Int
+}
+
 class CardView: UIView {
-    private var figureColor: UIColor!
-    private var filling: Filling!
-    private var figure: Figure!
-    private var figureCount: Int!
-    
-    func applySigns(colorSign: Sign, fillingSign: Sign, figureSign: Sign, figureCountSign: Sign) {
-        figureColor = colorSign.toColor()
-        filling = fillingSign.toFilling()
-        figure = figureSign.toFigure()
-        figureCount = figureCountSign.toFigureCount()
+    private var cardSign: CardViewSign! {
+        didSet { setNeedsDisplay() }
     }
     
-    private lazy var figureStack: UIStackView = {
+    var isChoosen = false {
+        didSet { setNeedsDisplay() }
+    }
+    
+    var isVisible = false {
+        didSet { setNeedsDisplay() }
+    }
+    
+    private var figureStack: UIStackView {
         let figureStack = UIStackView(arrangedSubviews: figures)
         figureStack.spacing = 20.0
         figureStack.axis = .vertical
         figureStack.alignment = .center
         addSubview(figureStack)
         return figureStack
-    }()
+    }
     
-    private lazy var figures: [UILabel] = {
+    private var figures: [UILabel] {
         var figures: [NSAttributedString] = []
-        let string = NSAttributedString(string: figure.rawValue, attributes: [
-            NSAttributedString.Key.foregroundColor: figureColor
-        ])
+        let attributedString = createAttributedString()
         
-        for _ in 0..<figureCount {
-            figures.append(string)
+        for _ in 0..<cardSign.figureCount {
+            figures.append(attributedString)
         }
         
         return figures.map{ let label = UILabel(); label.attributedText = $0; return label }
-    }()
+    }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    private func createAttributedString() -> NSAttributedString {
+        var attributes: [NSAttributedString.Key:Any] = [:]
+        switch cardSign.filling {
+            case .empty:
+                attributes[NSAttributedString.Key.strokeWidth] = 10
+                attributes[NSAttributedString.Key.strokeColor] = cardSign.figureColor
+            case .partial:
+                attributes[NSAttributedString.Key.foregroundColor] = cardSign.figureColor.withAlphaComponent(0.5)
+            case .solid:
+                attributes[NSAttributedString.Key.foregroundColor] = cardSign.figureColor
+        }
+        let string = NSAttributedString(string: cardSign.figure.rawValue, attributes: attributes)
+        return string
+    }
+    
+    func applySigns(colorSign: Sign, fillingSign: Sign, figureSign: Sign, figureCountSign: Sign) {
+        cardSign = CardViewSign(
+            figureColor: colorSign.toColor(),
+            filling: fillingSign.toFilling(),
+            figure: figureSign.toFigure(),
+            figureCount: figureCountSign.toFigureCount()
+        )
+        setNeedsDisplay()
+    }
+    
+    override func draw(_ rect: CGRect) {
+        subviews.forEach{ $0.removeFromSuperview() }
+        if !isVisible {
+            return
+        }
         
-        figureStack.center = CGPoint(x: bounds.midX, y: bounds.midY)
-        figureStack.frame = frame
+        guard cardSign != nil else { fatalError("In \(#function): cardSign cannot be nil") }
+            
+        let roundedRect = UIBezierPath(roundedRect: bounds, cornerRadius: 5.0)
+        roundedRect.addClip()
+        UIColor.white.setFill()
+        roundedRect.fill()
+        if isChoosen {
+            UIColor.red.setStroke()
+            roundedRect.lineWidth = 10.0
+            roundedRect.stroke()
+        }
+            
+        figureStack.draw(bounds)
+        figureStack.frame = bounds
+            
+        return
     }
 }
 

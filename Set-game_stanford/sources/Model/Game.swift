@@ -23,7 +23,8 @@ struct Game {
             }
         }
         
-        return content.map{ Card(signs: $0) }
+        let cards = content.map{ Card(signs: $0) }
+        return cards.shuffled()
     }()
     
     init(initialCardCount: Int) {
@@ -33,6 +34,24 @@ struct Game {
     }
     
     mutating func chooseCard(withIndex index: Int) {
+        cards[index].isChoosen = true
+        
+        let choosenCards = cards.filter{ $0.isChoosen }
+        if choosenCards.count != cardCountToMatch { return }
+        
+        if choosenCards.isMatched() {
+            cards = cards.map{ card in
+                if deck.isEmpty {
+                    var copy = card
+                    copy.isMatched = true
+                    return copy
+                }
+                
+                return deck.removeLast()
+            }
+        } else {
+            cards = cards.map{ var copy = $0; copy.isChoosen = false; return copy }
+        }
     }
     
     mutating func dealThreeMoreCards() {

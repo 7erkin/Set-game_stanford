@@ -18,7 +18,11 @@ enum Sign {
     }
 }
 
-struct Card {
+struct Card: CustomStringConvertible {
+    var description: String {
+        return "\(signs)"
+    }
+    
     var signs: [Sign]
     var isMatched: Bool = false
     var isChoosen: Bool = false
@@ -26,12 +30,12 @@ struct Card {
 
 extension Array where Element == Card {
     func isMatched() -> Bool {
-        if self.isEmpty { return false }
-        
         let acc: [Set<Sign>] = {
             let descriptorsCount = self[0].signs.count
             var acc = [Set<Sign>]()
-            acc.reserveCapacity(descriptorsCount)
+            for _ in 0..<descriptorsCount {
+                acc.append(Set<Sign>())
+            }
             return acc
         }()
         
@@ -40,7 +44,7 @@ extension Array where Element == Card {
             for (index, sign) in card.signs.enumerated() {
                 copy[index].insert(sign)
             }
-            return result
+            return copy
         }.allSatisfy{ $0.count != 2 }
     }
 }

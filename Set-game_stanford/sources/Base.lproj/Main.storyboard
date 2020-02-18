@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,126 +21,126 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zD3-61-aLX" userLabel="CardRow">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="103"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHW-hi-OPx" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHW-hi-OPx" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77m-5P-dcu" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77m-5P-dcu" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="96" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOk-rW-O55" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOk-rW-O55" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="192" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkM-A0-Kap" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkM-A0-Kap" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="288" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EoA-lD-Z5c" userLabel="CardRow">
                                         <rect key="frame" x="0.0" y="113" width="374" height="103"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxo-nf-aBF" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxo-nf-aBF" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZj-g5-qgT" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZj-g5-qgT" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="96" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rd3-Xc-9wF" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rd3-Xc-9wF" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="192" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ef-Q7-hlG" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ef-Q7-hlG" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="288" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wba-dz-vri" userLabel="CardRow">
                                         <rect key="frame" x="0.0" y="226" width="374" height="103"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zd-N8-6rR" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zd-N8-6rR" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJB-PC-XrW" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJB-PC-XrW" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="96" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bbp-1i-snX" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bbp-1i-snX" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="192" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzX-46-bHT" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzX-46-bHT" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="288" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lcw-2w-n27" userLabel="CardRow">
                                         <rect key="frame" x="0.0" y="339" width="374" height="103"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HkP-zw-Yxp" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HkP-zw-Yxp" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kth-OT-omx" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kth-OT-omx" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="96" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTj-Ed-Taf" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTj-Ed-Taf" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="192" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4JC-rA-GWx" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4JC-rA-GWx" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="288" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bmX-2k-Zng" userLabel="CardRow">
                                         <rect key="frame" x="0.0" y="452" width="374" height="103"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eY-Lu-9aV" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eY-Lu-9aV" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFx-vy-cYs" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFx-vy-cYs" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="96" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJJ-sf-dZl" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJJ-sf-dZl" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="192" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXC-r6-fds" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXC-r6-fds" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="288" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vBp-Jk-cvR" userLabel="CardRow">
                                         <rect key="frame" x="0.0" y="565" width="374" height="103"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZP-1j-ru0" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZP-1j-ru0" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8DK-3I-mk6" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8DK-3I-mk6" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="96" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQh-At-AnU" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQh-At-AnU" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="192" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4if-tF-0da" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4if-tF-0da" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
                                                 <rect key="frame" x="288" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -169,6 +169,15 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOJ-Os-ser">
+                                <rect key="frame" x="138" y="773" width="125" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Deal 3 more cards"/>
+                                <connections>
+                                    <action selector="onDealThreeMoreCardTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l8a-St-R2L"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.036142378122097869" green="0.45621827411167515" blue="0.079381810168197176" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -196,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-804" y="-40"/>
+            <point key="canvasLocation" x="-1865" y="-54"/>
         </scene>
     </scenes>
 </document>
