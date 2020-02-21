@@ -10,25 +10,27 @@ import UIKit
 
 fileprivate var initialCardCount = 12
 
-class GameViewController: UIViewController {
-    @IBOutlet var cardRows: [UIStackView]!
-    @IBOutlet var deckCardCountLabel: UILabel!
-    @IBOutlet var resultMatchingLabel: UILabel!
-    @IBOutlet var scoreLabel: UILabel!
+protocol Subscribing: class {
+    func update()
+}
+
+class GameViewController: UIViewController, Subscribing {
+    @IBOutlet private var cardRows: [UIStackView]!
+    @IBOutlet private var deckCardCountLabel: UILabel!
+    @IBOutlet private var resultMatchingLabel: UILabel!
+    @IBOutlet private var scoreLabel: UILabel!
     
-    @IBAction func onDealThreeMoreCardTouched(_ sender: UIButton) {
+    @IBAction private func onDealThreeMoreCardTouched(_ sender: UIButton) {
         game.dealThreeMoreCards()
-        updateViewWithModel()
+        update()
     }
     
-    @IBAction func onHintTapped(_ sender: UIButton) {
+    @IBAction private func onHintTapped(_ sender: UIButton) {
         game.hint()
-        updateViewWithModel()
     }
     
-    @IBAction func onStartNewGameTapped(_ sender: UIButton) {
+    @IBAction private func onStartNewGameTapped(_ sender: UIButton) {
         game.startNewGame(initialCardCount: initialCardCount)
-        updateViewWithModel()
     }
     
     private lazy var cards: [CardView] = {
@@ -36,9 +38,13 @@ class GameViewController: UIViewController {
         return cards
     }()
     
-    private var game: Game = Game(initialCardCount: initialCardCount)
+    private lazy var game: Game = {
+        var game = Game(initialCardCount: initialCardCount)
+        game.subscribe(self)
+        return game
+    }()
     
-    @objc func handleCardTap(sender: UITapGestureRecognizer) {
+    @objc private func handleCardTap(sender: UITapGestureRecognizer) {
         guard
             let tappedCard = sender.view as? CardView,
             let indexTappedCard = cards.firstIndex(of: tappedCard),
@@ -46,10 +52,9 @@ class GameViewController: UIViewController {
         else { return }
         
         game.chooseCard(withIndex: indexTappedCard)
-        updateViewWithModel()
     }
     
-    private func updateViewWithModel() {
+    func update() {
         deckCardCountLabel.text = "Deck: \(game.deck.count)"
         scoreLabel.text = "Score: \(game.score)"
         for (index, card) in cards.enumerated() {
@@ -73,7 +78,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         configureCards()
-        updateViewWithModel()
+        update()
     }
     
     private func configureCards() {
@@ -83,4 +88,3 @@ class GameViewController: UIViewController {
         }
     }
 }
-

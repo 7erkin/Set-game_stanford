@@ -25,14 +25,36 @@ fileprivate func createDeck() -> [Card] {
 }
 
 struct Game {
+    private var subscribers = [Subscribing]()
+    
     private(set) var cards = [Card]()
-    private(set) var hasSet = false
     private(set) var score = 0
     
     private(set) var deck: [Card] = createDeck()
     
+    private var hasSet: Bool {
+        return cards.some3Permutation { $0.map{ cards[$0] }.isMatched() }
+    }
+    
+    private var howManySets: Int {
+        var result = 0
+        cards.some3Permutation {
+            let cards = $0.map{ self.cards[$0] }
+            if cards.isMatched() { result += 1 }
+            
+            return false
+        }
+        return result
+    }
+    
     init(initialCardCount: Int) {
         dealFirstCards(initialCardCount)
+    }
+    
+    mutating func subscribe(_ subscriber: Subscribing) {
+        if subscribers.contains(where: { $0 === subscriber }) { return }
+        
+        subscribers.append(subscriber)
     }
     
     mutating private func dealFirstCards(_ cardCount: Int) {
@@ -74,6 +96,8 @@ struct Game {
     mutating func dealThreeMoreCards() {
         if deck.isEmpty { return }
         
+        if hasSet { score -= 1 }
+        
         for _ in 0..<cardToDeal {
             let card = deck.removeLast()
             if let index = cards.firstIndex(where: { $0.isMatched }) {
@@ -87,25 +111,24 @@ struct Game {
     mutating func startNewGame(initialCardCount: Int) {
         deck = createDeck()
         score = 0
-        hasSet = false
         cards = []
         dealFirstCards(initialCardCount)
     }
     
     mutating func hint() {
-        for i in 0..<cards.count - 2 {
-            for j in 1..<cards.count - 1 {
-                for k in 2..<cards.count {
-                    let arr = [cards[i], cards[j], cards[k]]
-                    if arr.isMatched() {
-                        print("======= \(arr)")
-                        cards[i].isHint = true
-                        cards[j].isHint = true
-                        cards[k].isHint = true
-                        return
-                    }
+        cards.some3Permutation {
+            let cards = $0.map{ self.cards[$0] }
+            if cards.isMatched() {
+                for index in $0 {
+                    self.cards[index].isHint = true
                 }
+                return true
             }
+            return false
         }
+    }
+    
+    private func notify() {
+        subscribers.forEach { $0.update() }
     }
 }

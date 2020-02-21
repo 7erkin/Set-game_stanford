@@ -65,3 +65,19 @@ extension Array where Element == Card {
         }.allSatisfy{ $0.count != 2 }
     }
 }
+
+extension Array where Element == Card {
+    @discardableResult
+    func some3Permutation(_ body: ([Int]) -> Bool) -> Bool {
+        for i in 0..<self.count - 2 {
+            for j in 1..<self.count - 1 {
+                for k in 2..<self.count {
+                    if body([i, j, k]) {
+                        return true
+                    }
+                }
+            }
+        }
+        return false
+    }
+}
