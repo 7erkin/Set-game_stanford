@@ -14,7 +14,7 @@ protocol Subscribing: class {
     func update()
 }
 
-class GameViewController: UIViewController, Subscribing {
+class SinglePlayerGameViewController: UIViewController, Subscribing {
     @IBOutlet private var cardRows: [UIStackView]!
     @IBOutlet private var deckCardCountLabel: UILabel!
     @IBOutlet private var resultMatchingLabel: UILabel!
@@ -38,8 +38,8 @@ class GameViewController: UIViewController, Subscribing {
         return cards
     }()
     
-    private lazy var game: MultiPlayerGame = {
-        var game = MultiPlayerGame()
+    private lazy var game: SinglePlayerGame = {
+        var game = SinglePlayerGame()
         game.subscribe(self)
         return game
     }()

@@ -24,19 +24,16 @@ fileprivate func createDeck() -> [Card] {
     return cards.shuffled()
 }
 
-struct Game {
-    private var subscribers = [Subscribing]()
-    
+class Game {
+    private unowned var gameModeDelegate: GameMode
     private(set) var cards = [Card]()
-    private(set) var score = 0
-    
     private(set) var deck: [Card] = createDeck()
     
     private var hasSet: Bool {
         return cards.some3Permutation { $0.map{ cards[$0] }.isMatched() }
     }
     
-    private var howManySets: Int {
+    var howManySets: Int {
         var result = 0
         cards.some3Permutation {
             let cards = $0.map{ self.cards[$0] }
@@ -47,23 +44,31 @@ struct Game {
         return result
     }
     
-    init(initialCardCount: Int) {
+    var setIndices: [Int]? {
+        var indices: [Int]? = nil
+        cards.some3Permutation {
+            let cards = $0.map{ self.cards[$0] }
+            if cards.isMatched() {
+                indices = $0
+                return true
+            }
+            return false
+        }
+        return indices
+    }
+    
+    init(gameMode: GameMode, initialCardCount: Int) {
+        gameModeDelegate = gameMode
         dealFirstCards(initialCardCount)
     }
     
-    mutating func subscribe(_ subscriber: Subscribing) {
-        if subscribers.contains(where: { $0 === subscriber }) { return }
-        
-        subscribers.append(subscriber)
-    }
-    
-    mutating private func dealFirstCards(_ cardCount: Int) {
+    private func dealFirstCards(_ cardCount: Int) {
         for _ in 0..<cardCount {
             cards.append(deck.removeLast())
         }
     }
     
-    mutating func chooseCard(withIndex index: Int) {
+    func chooseCard(withIndex index: Int) {
         cards[index].isChoosen = true
         
         for index in cards.indices {
@@ -74,7 +79,7 @@ struct Game {
         if choosenCards.count != cardCountToMatch { return }
         
         if choosenCards.isMatched() {
-            score += 1
+            gameModeDelegate.addPoint()
             cards = cards.map{ card in
                 if card.isChoosen {
                     if deck.isEmpty {
@@ -88,15 +93,15 @@ struct Game {
                 return card
             }
         } else {
-            score -= 1
+            gameModeDelegate.removePoint(reason: .WrongSet)
             cards = cards.map{ var copy = $0; copy.isChoosen = false; return copy }
         }
     }
     
-    mutating func dealThreeMoreCards() {
+    func deal3MoreCards() {
         if deck.isEmpty { return }
         
-        if hasSet { score -= 1 }
+        if hasSet { gameModeDelegate.removePoint(reason: .Deal3More) }
         
         for _ in 0..<cardToDeal {
             let card = deck.removeLast()
@@ -108,14 +113,14 @@ struct Game {
         }
     }
     
-    mutating func startNewGame(initialCardCount: Int) {
+    func startNewGame(initialCardCount: Int) {
         deck = createDeck()
-        score = 0
+        gameModeDelegate.resetPoints()
         cards = []
         dealFirstCards(initialCardCount)
     }
     
-    mutating func hint() {
+    func hint() {
         cards.some3Permutation {
             let cards = $0.map{ self.cards[$0] }
             if cards.isMatched() {
@@ -126,9 +131,5 @@ struct Game {
             }
             return false
         }
-    }
-    
-    private func notify() {
-        subscribers.forEach { $0.update() }
     }
 }
