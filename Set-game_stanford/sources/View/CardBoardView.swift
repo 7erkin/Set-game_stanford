@@ -8,7 +8,51 @@
 
 import UIKit
 
+fileprivate var cardRowCount = 6
+fileprivate var cardCount = 24
+fileprivate var spacingBetweenCards = CGFloat(10.0)
+
 @IBDesignable
-class CardBoardView: UIView {
+class CardBoardView: UIStackView {
+    private(set) var cards: [CardView] = {
+        return (0..<cardCount).map{ _ in CardView() }
+    }()
     
+    private lazy var cardRows: [UIStackView] = {
+        let cardInRow = cardCount / cardRowCount
+        
+        return cards
+            .chunked(into: cardInRow)
+            .reduce([UIStackView]()){ container, chunk -> [UIStackView] in
+                let cardRow = chunk.reduce(UIStackView()){ row, card -> UIStackView in
+                    row.addArrangedSubview(card)
+                    return row
+                }
+                cardRow.alignment = .fill
+                cardRow.distribution = .fillEqually
+                cardRow.spacing = spacingBetweenCards
+                cardRow.axis = .horizontal
+                return container + [cardRow]
+            }
+    }()
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if subviews.isEmpty {
+            cardRows.forEach{ addArrangedSubview($0) }
+            alignment = .fill
+            distribution = .fillEqually
+            axis = .vertical
+            spacing = spacingBetweenCards
+        }
+    }
+}
+
+extension Array {
+    func chunked(into size: Int) -> [[Element]] {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
+        }
+    }
 }

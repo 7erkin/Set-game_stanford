@@ -15,10 +15,10 @@ protocol Subscribing: class {
 }
 
 class SinglePlayerGameViewController: UIViewController, Subscribing {
-    @IBOutlet private var cardRows: [UIStackView]!
     @IBOutlet private var deckCardCountLabel: UILabel!
     @IBOutlet private var resultMatchingLabel: UILabel!
     @IBOutlet private var scoreLabel: UILabel!
+    @IBOutlet var cardBoardView: CardBoardView!
     
     @IBAction private func onDealThreeMoreCardTouched(_ sender: UIButton) {
         game.deal3MoreCards()
@@ -33,11 +33,6 @@ class SinglePlayerGameViewController: UIViewController, Subscribing {
         game.startNewGame()
     }
     
-    private lazy var cards: [CardView] = {
-        let cards = cardRows.reduce([UIView](), { $0 + $1.subviews }).map{ $0 as! CardView }
-        return cards
-    }()
-    
     private lazy var game: SinglePlayerGame = {
         var game = SinglePlayerGame()
         game.subscribe(self)
@@ -47,7 +42,7 @@ class SinglePlayerGameViewController: UIViewController, Subscribing {
     @objc private func handleCardTap(sender: UITapGestureRecognizer) {
         guard
             let tappedCard = sender.view as? CardView,
-            let indexTappedCard = cards.firstIndex(of: tappedCard),
+            let indexTappedCard = cardBoardView.cards.firstIndex(of: tappedCard),
             indexTappedCard < game.cards.count
         else { return }
         
@@ -56,8 +51,8 @@ class SinglePlayerGameViewController: UIViewController, Subscribing {
     
     func update() {
         deckCardCountLabel.text = "Deck: \(game.deck.count)"
-        // scoreLabel.text = "Score: \(game.score)"
-        for (index, card) in cards.enumerated() {
+        scoreLabel.text = "Score: \(game.score)"
+        for (index, card) in cardBoardView.cards.enumerated() {
             if index < game.cards.count {
                 if game.cards[index].isMatched {
                     card.isVisible = false
@@ -82,7 +77,7 @@ class SinglePlayerGameViewController: UIViewController, Subscribing {
     }
     
     private func configureCards() {
-        for (_, card) in cards.enumerated() {
+        for (_, card) in cardBoardView.cards.enumerated() {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleCardTap(sender:)))
             card.addGestureRecognizer(tapGesture)
         }

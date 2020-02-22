@@ -15,136 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="inl-aB-ErI" userLabel="CardBoard">
-                                <rect key="frame" x="20" y="44" width="374" height="668"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zD3-61-aLX" userLabel="CardRow">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="103"/>
-                                        <subviews>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHW-hi-OPx" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77m-5P-dcu" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="96" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOk-rW-O55" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkM-A0-Kap" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EoA-lD-Z5c" userLabel="CardRow">
-                                        <rect key="frame" x="0.0" y="113" width="374" height="103"/>
-                                        <subviews>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxo-nf-aBF" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZj-g5-qgT" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="96" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rd3-Xc-9wF" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ef-Q7-hlG" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wba-dz-vri" userLabel="CardRow">
-                                        <rect key="frame" x="0.0" y="226" width="374" height="103"/>
-                                        <subviews>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zd-N8-6rR" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJB-PC-XrW" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="96" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bbp-1i-snX" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzX-46-bHT" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lcw-2w-n27" userLabel="CardRow">
-                                        <rect key="frame" x="0.0" y="339" width="374" height="103"/>
-                                        <subviews>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HkP-zw-Yxp" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kth-OT-omx" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="96" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTj-Ed-Taf" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4JC-rA-GWx" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bmX-2k-Zng" userLabel="CardRow">
-                                        <rect key="frame" x="0.0" y="452" width="374" height="103"/>
-                                        <subviews>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eY-Lu-9aV" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFx-vy-cYs" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="96" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJJ-sf-dZl" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXC-r6-fds" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vBp-Jk-cvR" userLabel="CardRow">
-                                        <rect key="frame" x="0.0" y="565" width="374" height="103"/>
-                                        <subviews>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZP-1j-ru0" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8DK-3I-mk6" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="96" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQh-At-AnU" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4if-tF-0da" userLabel="Card" customClass="CardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="0.0" width="86" height="103"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NAc-nD-2D9" customClass="CardBoardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                <rect key="frame" x="20" y="44" width="374" height="703.5"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="rus-I2-wFZ">
                                 <rect key="frame" x="20" y="797.5" width="374" height="64.5"/>
@@ -210,25 +82,20 @@
                         <color key="backgroundColor" red="0.036142378122097869" green="0.45621827411167515" blue="0.079381810168197176" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rus-I2-wFZ" secondAttribute="bottom" id="Bgm-Ll-Eea"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="inl-aB-ErI" secondAttribute="trailing" constant="20" id="ECS-qn-aeu"/>
-                            <constraint firstItem="rus-I2-wFZ" firstAttribute="top" secondItem="inl-aB-ErI" secondAttribute="bottom" priority="250" constant="99.5" id="LBt-rl-SnT"/>
                             <constraint firstItem="rus-I2-wFZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PCe-Ki-HoJ"/>
-                            <constraint firstItem="inl-aB-ErI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PaP-3z-C39"/>
-                            <constraint firstItem="inl-aB-ErI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gtz-fc-yXw"/>
+                            <constraint firstItem="NAc-nD-2D9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SeU-Li-HOi"/>
+                            <constraint firstItem="rus-I2-wFZ" firstAttribute="top" secondItem="NAc-nD-2D9" secondAttribute="bottom" constant="50" id="Us8-MF-YE1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rus-I2-wFZ" secondAttribute="trailing" constant="20" id="iGi-2z-tLI"/>
+                            <constraint firstItem="NAc-nD-2D9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oTp-XK-7kD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NAc-nD-2D9" secondAttribute="trailing" constant="20" id="uGa-Pa-ZsJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cardBoardView" destination="NAc-nD-2D9" id="kv5-HU-xH2"/>
                         <outlet property="deckCardCountLabel" destination="ktk-6b-emT" id="rT4-wi-VHX"/>
                         <outlet property="resultMatchingLabel" destination="P0A-a4-vIZ" id="eEP-wn-aWW"/>
                         <outlet property="scoreLabel" destination="Asq-8F-KeH" id="yPc-am-i8v"/>
-                        <outletCollection property="cardRows" destination="zD3-61-aLX" collectionClass="NSMutableArray" id="EHi-L2-qCH"/>
-                        <outletCollection property="cardRows" destination="EoA-lD-Z5c" collectionClass="NSMutableArray" id="QZs-Xo-XF4"/>
-                        <outletCollection property="cardRows" destination="Wba-dz-vri" collectionClass="NSMutableArray" id="Vus-xx-Y4b"/>
-                        <outletCollection property="cardRows" destination="lcw-2w-n27" collectionClass="NSMutableArray" id="aAe-Nu-EfM"/>
-                        <outletCollection property="cardRows" destination="bmX-2k-Zng" collectionClass="NSMutableArray" id="Uuh-XU-ZFq"/>
-                        <outletCollection property="cardRows" destination="vBp-Jk-cvR" collectionClass="NSMutableArray" id="qlJ-S7-46r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

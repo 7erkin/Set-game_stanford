@@ -20,5 +20,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4C58D5D3-3B2C-49EA-8DFB-2A09A7C296C5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Set-game_stanford/sources/View/CardBoardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "layoutSubviews()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4C58D5D3-3B2C-49EA-8DFB-2A09A7C296C5 - be5886a581e034d"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Set_game_stanford.CardBoardView.layoutSubviews() -&gt; ()"
+                  moduleName = "Set-game_stanford"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oleg/Desktop/dev/iOS/Stanford/Set-game_stanford/Set-game_stanford/sources/View/CardBoardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "377">
+               </Location>
+               <Location
+                  uuid = "4C58D5D3-3B2C-49EA-8DFB-2A09A7C296C5 - 5a1e8953e26d0ca"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UIStackView) -&gt; () in Set_game_stanford.CardBoardView.layoutSubviews() -&gt; ()"
+                  moduleName = "Set-game_stanford"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oleg/Desktop/dev/iOS/Stanford/Set-game_stanford/Set-game_stanford/sources/View/CardBoardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "17EF57DF-5B03-446B-910F-659FDF597042"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Set-game_stanford/sources/View/CardBoardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "layoutSubviews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
