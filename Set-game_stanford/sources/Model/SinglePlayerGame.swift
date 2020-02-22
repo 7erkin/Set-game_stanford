@@ -9,57 +9,54 @@
 import Foundation
 
 class SinglePlayerGame: GameScoreManaging {
-    private lazy var game: Game = {
-        return Game(gameMode: self)
+    private lazy var gameLogic: GameLogic = {
+        return GameLogic(gameScoreManager: self)
     }()
     
-    private var subscribers = [Subscribing]()
+    private var subscriberList = SubscriberList()
     
     private(set) var score = 0
     
-    func subscribe(_ subscriber: Subscribing) {
-        if subscribers.contains(where: { $0 === subscriber }) { return }
-        
-        subscribers.append(subscriber)
+    var cards: [Card] { return gameLogic.cards }
+    
+    var deck: [Card] { return gameLogic.deck }
+    
+    func subscribe(subscriber: Subscribing) {
+        subscriberList.add(subscriber)
     }
     
-    var cards: [Card] { return game.cards }
-    
-    var deck: [Card] { return game.deck }
-    
     func hint() {
-        game.hint()
-        notify()
+        gameLogic.hint()
+        subscriberList.notifyAll()
     }
     
     func chooseCard(withIndex indexTappedCard: Int) {
-        game.chooseCard(withIndex: indexTappedCard)
-        notify()
+        gameLogic.chooseCard(withIndex: indexTappedCard)
+        subscriberList.notifyAll()
     }
     
     func deal3MoreCards() {
-        game.deal3MoreCards()
-        notify()
+        gameLogic.deal3MoreCards()
+        subscriberList.notifyAll()
     }
     
     func startNewGame() {
-        game.startNewGame()
-        notify()
+        gameLogic.startNewGame()
+        subscriberList.notifyAll()
     }
     
     func addPoint() {
         score += 1
+        subscriberList.notifyAll()
     }
     
     func removePoint(reason: PointChangingReason) {
         score -= 1
+        subscriberList.notifyAll()
     }
     
     func resetPoints() {
         score = 0
-    }
-    
-    private func notify() {
-        subscribers.forEach { $0.update() }
+        subscriberList.notifyAll()
     }
 }

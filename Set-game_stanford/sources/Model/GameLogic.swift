@@ -25,8 +25,8 @@ fileprivate func createDeck() -> [Card] {
     return cards.shuffled()
 }
 
-class Game {
-    private unowned var gameModeDelegate: GameScoreManaging
+class GameLogic {
+    private unowned var delegate: GameScoreManaging
     private(set) var cards = [Card]()
     private(set) var deck: [Card] = createDeck()
     
@@ -35,14 +35,14 @@ class Game {
     }
     
     var howManySets: Int {
-        var result = 0
+        var setCount = 0
         cards.some3Permutation {
             let cards = $0.map{ self.cards[$0] }
-            if cards.isMatched() { result += 1 }
+            if cards.isMatched() { setCount += 1 }
             
             return false
         }
-        return result
+        return setCount
     }
     
     var setIndices: [Int]? {
@@ -58,8 +58,8 @@ class Game {
         return indices
     }
     
-    init(gameMode: GameScoreManaging) {
-        gameModeDelegate = gameMode
+    init(gameScoreManager: GameScoreManaging) {
+        delegate = gameScoreManager
         dealFirstCards(initialCardCount)
     }
     
@@ -80,7 +80,7 @@ class Game {
         if choosenCards.count != cardCountToMatch { return }
         
         if choosenCards.isMatched() {
-            gameModeDelegate.addPoint()
+            delegate.addPoint()
             cards = cards.map{ card in
                 if card.isChoosen {
                     if deck.isEmpty {
@@ -94,7 +94,7 @@ class Game {
                 return card
             }
         } else {
-            gameModeDelegate.removePoint(reason: .WrongSet)
+            delegate.removePoint(reason: .WrongSet)
             cards = cards.map{ var copy = $0; copy.isChoosen = false; return copy }
         }
     }
@@ -102,7 +102,9 @@ class Game {
     func deal3MoreCards() {
         if deck.isEmpty { return }
         
-        if hasSet { gameModeDelegate.removePoint(reason: .Deal3More) }
+        if hasSet {
+            delegate.removePoint(reason: .Deal3More)
+        }
         
         for _ in 0..<cardToDeal {
             let card = deck.removeLast()
@@ -116,7 +118,7 @@ class Game {
     
     func startNewGame() {
         deck = createDeck()
-        gameModeDelegate.resetPoints()
+        delegate.resetPoints()
         cards = []
         dealFirstCards(initialCardCount)
     }

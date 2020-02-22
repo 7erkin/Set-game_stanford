@@ -35,7 +35,7 @@ class SinglePlayerGameViewController: UIViewController, Subscribing {
     
     private lazy var game: SinglePlayerGame = {
         var game = SinglePlayerGame()
-        game.subscribe(self)
+        game.subscribe(subscriber: self)
         return game
     }()
     

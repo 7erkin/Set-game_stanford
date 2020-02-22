@@ -12,21 +12,7 @@ class MultiPlayerGame: GameScoreManaging {
     enum Turn {
         case Human
         case Machine
-        
-        mutating func nextTurn() {
-            switch self {
-                case .Human:
-                    self = .Machine
-                case .Machine:
-                    self = .Human
-            }
-        }
     }
-    
-    private lazy var machineIntelligence: MachineIntelligence = {
-        var machineIntelligence = MachineIntelligence(gameMode: self, game: self.game)
-        return machineIntelligence
-    }()
     
     private(set) var turn: Turn = Turn.Human {
         didSet {
@@ -34,43 +20,55 @@ class MultiPlayerGame: GameScoreManaging {
         }
     }
     
-    private lazy var game: Game = {
-        return Game(gameMode: self)
+    private var subscriberList = SubscriberList()
+    
+    private lazy var machineIntelligence: MachineIntelligence = {
+        var machineIntelligence = MachineIntelligence(gameMode: self, game: self.gameLogic)
+        return machineIntelligence
     }()
     
-    private var subscribers = [Subscribing]()
+    private lazy var gameLogic: GameLogic = {
+        return GameLogic(gameScoreManager: self)
+    }()
     
     private(set) var humanScore = 0
     private(set) var machineScore = 0
     
-    func subscribe(_ subscriber: Subscribing) {
-        if subscribers.contains(where: { $0 === subscriber }) { return }
-        
-        subscribers.append(subscriber)
+    func add(subscriber: Subscribing) {
+        subscriberList.add(subscriber)
     }
     
-    var cards: [Card] { return game.cards }
+    func nextTurn() {
+        switch turn {
+            case .Human:
+                turn = .Machine
+            case .Machine:
+                turn = .Human
+        }
+    }
     
-    var deck: [Card] { return game.deck }
+    var cards: [Card] { return gameLogic.cards }
+    
+    var deck: [Card] { return gameLogic.deck }
     
     func hint() {
-        game.hint()
-        notify()
+        gameLogic.hint()
+        subscriberList.notifyAll()
     }
     
     func chooseCard(withIndex indexTappedCard: Int) {
-        game.chooseCard(withIndex: indexTappedCard)
-        notify()
+        gameLogic.chooseCard(withIndex: indexTappedCard)
+        subscriberList.notifyAll()
     }
     
     func deal3MoreCards() {
-        game.deal3MoreCards()
-        notify()
+        gameLogic.deal3MoreCards()
+        subscriberList.notifyAll()
     }
     
     func startNewGame() {
-        game.startNewGame()
-        notify()
+        gameLogic.startNewGame()
+        subscriberList.notifyAll()
     }
     
     func addPoint() {
@@ -80,7 +78,8 @@ class MultiPlayerGame: GameScoreManaging {
             machineScore += 1
         }
         
-        turn.nextTurn()
+        nextTurn()
+        subscriberList.notifyAll()
     }
     
     func removePoint(reason: PointChangingReason) {
@@ -91,16 +90,15 @@ class MultiPlayerGame: GameScoreManaging {
         }
         
         if reason == .WrongSet {
-            turn.nextTurn()
+            nextTurn()
         }
+        
+        subscriberList.notifyAll()
     }
     
     func resetPoints() {
         humanScore = 0
         machineScore = 0
-    }
-    
-    private func notify() {
-        subscribers.forEach { $0.update() }
+        subscriberList.notifyAll()
     }
 }

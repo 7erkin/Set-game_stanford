@@ -8,8 +8,10 @@
 
 import Foundation
 
+fileprivate let cardInSetCount = 3
+
 class MachineIntelligence {
-    private unowned var game: Game
+    private unowned var game: GameLogic
     private unowned var gameMode: MultiPlayerGame
     
     private var haveToFindSet: Bool {
@@ -20,7 +22,7 @@ class MachineIntelligence {
         return 10.0
     }
     
-    init(gameMode: MultiPlayerGame, game: Game) {
+    init(gameMode: MultiPlayerGame, game: GameLogic) {
         self.game = game
         self.gameMode = gameMode
     }
@@ -39,7 +41,7 @@ class MachineIntelligence {
             for (index, card) in game.cards.enumerated() {
                 if !card.isMatched {
                     randomIndices.append(index)
-                    if randomIndices.count == 3 {
+                    if randomIndices.count == cardInSetCount {
                         chooseCards(withIndices: randomIndices)
                         return
                     }
@@ -51,7 +53,9 @@ class MachineIntelligence {
     private func chooseCards(withIndices indices: [Int]) {
         let turnTime = turnTimeInterval
         for (i, index) in indices.enumerated() {
-            Timer.scheduledTimer(withTimeInterval: Double(i) * turnTime / 3, repeats: false) { [weak self] _ in self?.gameMode.chooseCard(withIndex: index) }
+            Timer.scheduledTimer(withTimeInterval: Double(i) * turnTime / Double(cardInSetCount), repeats: false) { [weak self] _ in
+                self?.gameMode.chooseCard(withIndex: index)
+            }
         }
     }
 }

@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C3A25DA2401F09900C1F335 /* SubscriberList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A25D92401F09900C1F335 /* SubscriberList.swift */; };
 		7C82A01623F45F700070667B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A01523F45F700070667B /* AppDelegate.swift */; };
 		7C82A01D23F45F700070667B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C82A01B23F45F700070667B /* Main.storyboard */; };
 		7C82A01F23F45F710070667B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C82A01E23F45F710070667B /* Assets.xcassets */; };
 		7C82A02223F45F710070667B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C82A02023F45F710070667B /* LaunchScreen.storyboard */; };
-		7C82A02B23F461F60070667B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A02A23F461F60070667B /* Game.swift */; };
+		7C82A02B23F461F60070667B /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A02A23F461F60070667B /* GameLogic.swift */; };
 		7C82A03023F5C2350070667B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A02F23F5C2350070667B /* Card.swift */; };
 		7C82A03823F5F5FF0070667B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A03723F5F5FF0070667B /* CardView.swift */; };
 		7C82A04423FB267C0070667B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A04323FB267C0070667B /* SceneDelegate.swift */; };
@@ -25,13 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C3A25D92401F09900C1F335 /* SubscriberList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriberList.swift; sourceTree = "<group>"; };
 		7C82A01223F45F700070667B /* Set-game_stanford.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Set-game_stanford.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C82A01523F45F700070667B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C82A01C23F45F700070667B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C82A01E23F45F710070667B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C82A02123F45F710070667B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C82A02323F45F710070667B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C82A02A23F461F60070667B /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		7C82A02A23F461F60070667B /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		7C82A02F23F5C2350070667B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		7C82A03723F5F5FF0070667B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		7C82A04323FB267C0070667B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,12 +100,13 @@
 		7C82A02E23F5C22A0070667B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7C82A02A23F461F60070667B /* Game.swift */,
+				7C82A02A23F461F60070667B /* GameLogic.swift */,
 				7C82A02F23F5C2350070667B /* Card.swift */,
 				7CC8ADAD240085EF0054BEBE /* GameScoreManaging.swift */,
 				7CC8ADAF240086140054BEBE /* SinglePlayerGame.swift */,
 				7CC8ADB524008C360054BEBE /* MultiPlayerGame.swift */,
 				7CC8ADB72400916D0054BEBE /* MachineIntelligence.swift */,
+				7C3A25D92401F09900C1F335 /* SubscriberList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,13 +202,14 @@
 			files = (
 				7CC8ADAE240085EF0054BEBE /* GameScoreManaging.swift in Sources */,
 				7CC8ADBC2400A2830054BEBE /* MultiPlayerGameViewController.swift in Sources */,
-				7C82A02B23F461F60070667B /* Game.swift in Sources */,
+				7C82A02B23F461F60070667B /* GameLogic.swift in Sources */,
 				7C82A04423FB267C0070667B /* SceneDelegate.swift in Sources */,
 				7CC8ADB624008C360054BEBE /* MultiPlayerGame.swift in Sources */,
 				7C82A01623F45F700070667B /* AppDelegate.swift in Sources */,
 				7CC8ADBA2400A2450054BEBE /* SinglePlayerGameViewController.swift in Sources */,
 				7CC8ADC0240135B10054BEBE /* CardBoardView.swift in Sources */,
 				7CC8ADB82400916D0054BEBE /* MachineIntelligence.swift in Sources */,
+				7C3A25DA2401F09900C1F335 /* SubscriberList.swift in Sources */,
 				7CC8ADB0240086140054BEBE /* SinglePlayerGame.swift in Sources */,
 				7C82A03023F5C2350070667B /* Card.swift in Sources */,
 				7C82A03823F5F5FF0070667B /* CardView.swift in Sources */,
