@@ -8,9 +8,7 @@
 
 import Foundation
 
-fileprivate var initialCardCount = 12
-
-class MultiPlayerGame: GameMode {
+class MultiPlayerGame: GameScoreManaging {
     enum Turn {
         case Human
         case Machine
@@ -37,7 +35,7 @@ class MultiPlayerGame: GameMode {
     }
     
     private lazy var game: Game = {
-        return Game(gameMode: self, initialCardCount: initialCardCount)
+        return Game(gameMode: self)
     }()
     
     private var subscribers = [Subscribing]()
@@ -71,7 +69,7 @@ class MultiPlayerGame: GameMode {
     }
     
     func startNewGame() {
-        game.startNewGame(initialCardCount: initialCardCount)
+        game.startNewGame()
         notify()
     }
     
@@ -85,7 +83,7 @@ class MultiPlayerGame: GameMode {
         turn.nextTurn()
     }
     
-    func removePoint(reason: ChangingPointReason) {
+    func removePoint(reason: PointChangingReason) {
         if turn == .Human {
             humanScore -= 1
         } else {

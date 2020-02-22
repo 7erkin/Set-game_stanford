@@ -8,11 +8,9 @@
 
 import Foundation
 
-fileprivate var initialCardCount = 12
-
-class SinglePlayerGame: GameMode {
+class SinglePlayerGame: GameScoreManaging {
     private lazy var game: Game = {
-        return Game(gameMode: self, initialCardCount: initialCardCount)
+        return Game(gameMode: self)
     }()
     
     private var subscribers = [Subscribing]()
@@ -45,7 +43,7 @@ class SinglePlayerGame: GameMode {
     }
     
     func startNewGame() {
-        game.startNewGame(initialCardCount: initialCardCount)
+        game.startNewGame()
         notify()
     }
     
@@ -53,7 +51,7 @@ class SinglePlayerGame: GameMode {
         score += 1
     }
     
-    func removePoint(reason: ChangingPointReason) {
+    func removePoint(reason: PointChangingReason) {
         score -= 1
     }
     

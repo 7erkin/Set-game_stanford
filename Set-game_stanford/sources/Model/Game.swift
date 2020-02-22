@@ -10,6 +10,7 @@ import Foundation
 
 fileprivate let cardCountToMatch = 3
 fileprivate let cardToDeal = 3
+fileprivate let initialCardCount = 12
 
 fileprivate func createDeck() -> [Card] {
     let content: [[Sign]] = Sign.all.flatMap { s1 in
@@ -25,7 +26,7 @@ fileprivate func createDeck() -> [Card] {
 }
 
 class Game {
-    private unowned var gameModeDelegate: GameMode
+    private unowned var gameModeDelegate: GameScoreManaging
     private(set) var cards = [Card]()
     private(set) var deck: [Card] = createDeck()
     
@@ -57,7 +58,7 @@ class Game {
         return indices
     }
     
-    init(gameMode: GameMode, initialCardCount: Int) {
+    init(gameMode: GameScoreManaging) {
         gameModeDelegate = gameMode
         dealFirstCards(initialCardCount)
     }
@@ -113,7 +114,7 @@ class Game {
         }
     }
     
-    func startNewGame(initialCardCount: Int) {
+    func startNewGame() {
         deck = createDeck()
         gameModeDelegate.resetPoints()
         cards = []

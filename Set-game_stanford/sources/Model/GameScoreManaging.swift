@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum ChangingPointReason {
+enum PointChangingReason {
     case WrongSet
     case Deal3More
 }
 
-protocol GameMode: class {
+protocol GameScoreManaging: class {
     func addPoint()
-    func removePoint(reason: ChangingPointReason)
+    func removePoint(reason: PointChangingReason)
     func resetPoints()
 }
