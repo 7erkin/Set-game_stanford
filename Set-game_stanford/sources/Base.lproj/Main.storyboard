@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ypM-4H-btV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -7,7 +7,58 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Single Player Game View Controller-->
+        <!--Choose game mode-->
+        <scene sceneID="Svn-He-i7q">
+            <objects>
+                <viewController id="EWn-YQ-A3c" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zio-4R-jos">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrL-Xj-ghg">
+                                <rect key="frame" x="86" y="227" width="242" height="100"/>
+                                <color key="backgroundColor" red="0.9802704646" green="1" blue="0.17933820310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Jtf-fM-whb"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="242" id="bW4-PX-7WD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <state key="normal" title="Single player"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="" id="niY-uc-usr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qb2-xE-F7n">
+                                <rect key="frame" x="86" y="399" width="242" height="100"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="242" id="Wn8-Sw-oYv"/>
+                                    <constraint firstAttribute="height" constant="100" id="eIg-bg-VnX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <state key="normal" title="Multiplayer"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="j6g-b0-byH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10983175210937106" green="0.48168316861699678" blue="0.15472983232473012" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="LjJ-ig-4uw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Qb2-xE-F7n" secondAttribute="trailing" symbolic="YES" id="580-CM-WcQ"/>
+                            <constraint firstItem="OrL-Xj-ghg" firstAttribute="centerX" secondItem="Zio-4R-jos" secondAttribute="centerX" id="8Gu-qm-eKH"/>
+                            <constraint firstItem="OrL-Xj-ghg" firstAttribute="leading" secondItem="Qb2-xE-F7n" secondAttribute="leading" id="9PC-Fz-j5Q"/>
+                            <constraint firstItem="Qb2-xE-F7n" firstAttribute="top" secondItem="OrL-Xj-ghg" secondAttribute="bottom" constant="72" id="aD6-xp-ja0"/>
+                            <constraint firstItem="OrL-Xj-ghg" firstAttribute="top" secondItem="LjJ-ig-4uw" secondAttribute="top" constant="139" id="zwo-Na-hUs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LjJ-ig-4uw"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Choose game mode" id="Hkc-B9-IyN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jwp-vT-jVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1126.0869565217392" y="-54.241071428571423"/>
+        </scene>
+        <!--Game-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SinglePlayerGameViewController" customModule="Set_game_stanford" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NAc-nD-2D9" customClass="CardBoardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                <rect key="frame" x="20" y="44" width="374" height="703.5"/>
+                                <rect key="frame" x="20" y="98" width="374" height="649.5"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="rus-I2-wFZ">
                                 <rect key="frame" x="20" y="797.5" width="374" height="64.5"/>
@@ -86,11 +137,12 @@
                             <constraint firstItem="NAc-nD-2D9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SeU-Li-HOi"/>
                             <constraint firstItem="rus-I2-wFZ" firstAttribute="top" secondItem="NAc-nD-2D9" secondAttribute="bottom" constant="50" id="Us8-MF-YE1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rus-I2-wFZ" secondAttribute="trailing" constant="20" id="iGi-2z-tLI"/>
-                            <constraint firstItem="NAc-nD-2D9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oTp-XK-7kD"/>
+                            <constraint firstItem="NAc-nD-2D9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="oTp-XK-7kD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NAc-nD-2D9" secondAttribute="trailing" constant="20" id="uGa-Pa-ZsJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Game" id="eTj-HG-v73"/>
                     <connections>
                         <outlet property="cardBoardView" destination="NAc-nD-2D9" id="kv5-HU-xH2"/>
                         <outlet property="deckCardCountLabel" destination="ktk-6b-emT" id="rT4-wi-VHX"/>
@@ -100,7 +152,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1865" y="-54"/>
+            <point key="canvasLocation" x="-44.927536231884062" y="-54.241071428571423"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ccj-NG-8Kt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ypM-4H-btV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ho2-lG-3Fl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EWn-YQ-A3c" kind="relationship" relationship="rootViewController" id="TnL-yh-Zh8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xhy-wG-8rL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2036.2318840579712" y="-54.241071428571423"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="niY-uc-usr"/>
+    </inferredMetricsTieBreakers>
 </document>
