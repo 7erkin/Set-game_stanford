@@ -69,6 +69,7 @@ class CardView: UIView {
     override func draw(_ rect: CGRect) {
         subviews.forEach{ $0.removeFromSuperview() }
         if !isVisible {
+            backgroundColor = .clear
             return
         }
         

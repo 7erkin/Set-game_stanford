@@ -66,14 +66,26 @@ extension Array where Element == Card {
     }
 }
 
+extension Array where Element == Int {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return true
+    }
+}
+
 extension Array where Element == Card {
     @discardableResult
-    func some3Permutation(_ body: ([Int]) -> Bool) -> Bool {
+    func some3UniquePermutation(_ body: ([Int]) -> Bool) -> Bool {
+        var uniqueIndices = Set<[Int]>()
+        
         for i in 0..<self.count - 2 {
             for j in 1..<self.count - 1 {
                 for k in 2..<self.count {
-                    if body([i, j, k]) {
-                        return true
+                    let indices = [i, j, k]
+                    if indices.isAllUnique() && uniqueIndices.first(where: { $0.allSatisfy{ indices.contains($0) } }) == nil {
+                        uniqueIndices.insert(indices)
+                        if body(indices) {
+                            return true
+                        }
                     }
                 }
             }

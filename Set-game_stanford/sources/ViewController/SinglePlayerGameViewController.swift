@@ -10,26 +10,28 @@ import UIKit
 
 fileprivate var initialCardCount = 12
 
-protocol Subscribing: class {
-    func update()
-}
-
 class SinglePlayerGameViewController: UIViewController, Subscribing {
     @IBOutlet private var deckCardCountLabel: UILabel!
-    @IBOutlet private var resultMatchingLabel: UILabel!
     @IBOutlet private var scoreLabel: UILabel!
     @IBOutlet var cardBoardView: CardBoardView!
+    @IBOutlet var gamePanelView: GamePanelView! {
+        didSet {
+            self.gamePanelView.hintButton.addTarget(self, action: #selector(onHintButtonTapped(_:)), for: UIControl.Event.touchUpInside)
+            self.gamePanelView.newGameButton.addTarget(self, action: #selector(onNewGameButtonTapped(_:)), for: UIControl.Event.touchUpInside)
+            self.gamePanelView.deal3MoreCardsButton.addTarget(self, action: #selector(onDeal3MoreCardsButtonTapped(_:)), for: UIControl.Event.touchUpInside)
+        }
+    }
     
-    @IBAction private func onDealThreeMoreCardTouched(_ sender: UIButton) {
+    @IBAction private func onDeal3MoreCardsButtonTapped(_ sender: UIButton) {
         game.deal3MoreCards()
         update()
     }
     
-    @IBAction private func onHintTapped(_ sender: UIButton) {
+    @IBAction private func onHintButtonTapped(_ sender: UIButton) {
         game.hint()
     }
     
-    @IBAction private func onStartNewGameTapped(_ sender: UIButton) {
+    @IBAction private func onNewGameButtonTapped(_ sender: UIButton) {
         game.startNewGame()
     }
     
@@ -52,6 +54,8 @@ class SinglePlayerGameViewController: UIViewController, Subscribing {
     func update() {
         deckCardCountLabel.text = "Deck: \(game.deck.count)"
         scoreLabel.text = "Score: \(game.score)"
+        gamePanelView.setsOnBoardCount = game.setsOnBoardCount
+        print("How many cards: \(game.cards.count)")
         for (index, card) in cardBoardView.cards.enumerated() {
             if index < game.cards.count {
                 if game.cards[index].isMatched {

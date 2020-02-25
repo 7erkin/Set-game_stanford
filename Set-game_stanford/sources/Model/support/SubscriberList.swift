@@ -17,6 +17,8 @@ class SubscriberList {
     }
     
     func notifyAll() {
-        subscribers.forEach { $0.update() }
+        DispatchQueue.main.async { [weak self] in
+            self?.subscribers.forEach { $0.update() }
+        }
     }
 }

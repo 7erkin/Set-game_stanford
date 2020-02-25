@@ -25,7 +25,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <state key="normal" title="Single player"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="" id="niY-uc-usr"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="VMN-kN-qQ2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qb2-xE-F7n">
@@ -38,7 +38,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <state key="normal" title="Multiplayer"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="j6g-b0-byH"/>
+                                    <segue destination="gFs-6i-ome" kind="show" id="9DI-rq-psp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="-1126.0869565217392" y="-54.241071428571423"/>
         </scene>
-        <!--Game-->
+        <!--Single player game-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SinglePlayerGameViewController" customModule="Set_game_stanford" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,54 +67,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NAc-nD-2D9" customClass="CardBoardView" customModule="Set_game_stanford" customModuleProvider="target">
-                                <rect key="frame" x="20" y="98" width="374" height="649.5"/>
+                                <rect key="frame" x="20" y="98" width="374" height="629.5"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="rus-I2-wFZ">
-                                <rect key="frame" x="20" y="797.5" width="374" height="64.5"/>
+                                <rect key="frame" x="20" y="777.5" width="374" height="84.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wcY-Yh-Q55" userLabel="ButtonPanel">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="33"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhY-q8-deh">
-                                                <rect key="frame" x="0.0" y="0.0" width="121.5" height="33"/>
-                                                <color key="backgroundColor" red="0.9802704646" green="1" blue="0.17933820310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Hint"/>
-                                                <connections>
-                                                    <action selector="onHintTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7dm-s6-pDk"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21n-J7-5Zp">
-                                                <rect key="frame" x="126.5" y="0.0" width="121" height="33"/>
-                                                <color key="backgroundColor" red="0.9802704646" green="1" blue="0.17933820310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="New game"/>
-                                                <connections>
-                                                    <action selector="onStartNewGameTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KBh-Cc-xZz"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOJ-Os-ser">
-                                                <rect key="frame" x="252.5" y="0.0" width="121.5" height="33"/>
-                                                <color key="backgroundColor" red="0.9802704646" green="1" blue="0.17933820310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Deal 3+"/>
-                                                <connections>
-                                                    <action selector="onDealThreeMoreCardTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l8a-St-R2L"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wcY-Yh-Q55" userLabel="ButtonPanel" customClass="GamePanelView" customModule="Set_game_stanford" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="53"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="dD8-BB-6Q5" userLabel="GameInfo">
-                                        <rect key="frame" x="0.0" y="44" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="64" width="374" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deck: 69" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktk-6b-emT">
                                                 <rect key="frame" x="0.0" y="0.0" width="69.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MATCHING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0A-a4-vIZ">
-                                                <rect key="frame" x="143" y="0.0" width="87" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -142,17 +107,92 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Game" id="eTj-HG-v73"/>
+                    <navigationItem key="navigationItem" title="Single player game" id="eTj-HG-v73"/>
                     <connections>
                         <outlet property="cardBoardView" destination="NAc-nD-2D9" id="kv5-HU-xH2"/>
                         <outlet property="deckCardCountLabel" destination="ktk-6b-emT" id="rT4-wi-VHX"/>
-                        <outlet property="resultMatchingLabel" destination="P0A-a4-vIZ" id="eEP-wn-aWW"/>
+                        <outlet property="gamePanelView" destination="wcY-Yh-Q55" id="NP8-sD-hEb"/>
                         <outlet property="scoreLabel" destination="Asq-8F-KeH" id="yPc-am-i8v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-44.927536231884062" y="-54.241071428571423"/>
+            <point key="canvasLocation" x="-17.39130434782609" y="-283.25892857142856"/>
+        </scene>
+        <!--Multiplayer game-->
+        <scene sceneID="gxW-yo-zbv">
+            <objects>
+                <viewController id="gFs-6i-ome" customClass="MultiPlayerGameViewController" customModule="Set_game_stanford" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H7a-Ad-Xje">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUM-sx-Xsv" customClass="GamePanelView" customModule="Set_game_stanford" customModuleProvider="target">
+                                <rect key="frame" x="20" y="750" width="374" height="35"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="setsOnBoardCount">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isDeal3MoreButtonEnable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nXe-jb-kuq" userLabel="Players score">
+                                <rect key="frame" x="225.5" y="801" width="168.5" height="61"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Human score: 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8X-yb-s1A">
+                                        <rect key="frame" x="7.5" y="0.0" width="154" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Machine score: 20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqj-1M-oez">
+                                        <rect key="frame" x="0.0" y="35.5" width="168.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deck: 69" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-MA-mxh">
+                                <rect key="frame" x="20" y="836.5" width="83.5" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCY-VN-tiR" customClass="CardBoardView" customModule="Set_game_stanford" customModuleProvider="target">
+                                <rect key="frame" x="20" y="88" width="374" height="627"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="N70-Ms-9xg" firstAttribute="trailing" secondItem="nXe-jb-kuq" secondAttribute="trailing" constant="20" id="3lG-q7-4YX"/>
+                            <constraint firstItem="kCY-VN-tiR" firstAttribute="leading" secondItem="N70-Ms-9xg" secondAttribute="leading" constant="20" id="FZe-9W-TaP"/>
+                            <constraint firstItem="N70-Ms-9xg" firstAttribute="trailing" secondItem="kCY-VN-tiR" secondAttribute="trailing" constant="20" id="IB4-MN-Ymy"/>
+                            <constraint firstItem="kCY-VN-tiR" firstAttribute="top" secondItem="N70-Ms-9xg" secondAttribute="top" id="WL7-ow-xjE"/>
+                            <constraint firstItem="wUM-sx-Xsv" firstAttribute="leading" secondItem="N70-Ms-9xg" secondAttribute="leading" constant="20" id="Zr1-Cv-qph"/>
+                            <constraint firstItem="wUM-sx-Xsv" firstAttribute="top" secondItem="kCY-VN-tiR" secondAttribute="bottom" constant="35" id="dWr-ZW-hP6"/>
+                            <constraint firstItem="N70-Ms-9xg" firstAttribute="trailing" secondItem="wUM-sx-Xsv" secondAttribute="trailing" constant="20" id="g7T-zf-PuW"/>
+                            <constraint firstItem="nXe-jb-kuq" firstAttribute="top" secondItem="wUM-sx-Xsv" secondAttribute="bottom" constant="16" id="llJ-jH-dzX"/>
+                            <constraint firstItem="nXe-jb-kuq" firstAttribute="bottom" secondItem="N70-Ms-9xg" secondAttribute="bottom" id="n15-Rv-R2S"/>
+                            <constraint firstItem="ghl-MA-mxh" firstAttribute="bottom" secondItem="N70-Ms-9xg" secondAttribute="bottom" id="olg-Ol-ClT"/>
+                            <constraint firstItem="ghl-MA-mxh" firstAttribute="leading" secondItem="N70-Ms-9xg" secondAttribute="leading" constant="20" id="suo-Zt-cvG"/>
+                            <constraint firstItem="nXe-jb-kuq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ghl-MA-mxh" secondAttribute="trailing" constant="8" symbolic="YES" id="zgd-lK-X4o"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="N70-Ms-9xg"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Multiplayer game" id="G65-6c-zjc"/>
+                    <connections>
+                        <outlet property="cardBoardView" destination="kCY-VN-tiR" id="BHL-Ou-kQW"/>
+                        <outlet property="deckCardCountLabel" destination="ghl-MA-mxh" id="cdX-KS-A0o"/>
+                        <outlet property="gamePanelView" destination="wUM-sx-Xsv" id="4eD-hK-u1i"/>
+                        <outlet property="humanScoreLabel" destination="s8X-yb-s1A" id="eql-ks-QfO"/>
+                        <outlet property="machineScoreLabel" destination="Gqj-1M-oez" id="YNk-ae-CUF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tme-4L-hQY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-18.840579710144929" y="402.45535714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ccj-NG-8Kt">
@@ -173,7 +213,4 @@
             <point key="canvasLocation" x="-2036.2318840579712" y="-54.241071428571423"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="niY-uc-usr"/>
-    </inferredMetricsTieBreakers>
 </document>

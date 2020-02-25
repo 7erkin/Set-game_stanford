@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		7C3A25DA2401F09900C1F335 /* SubscriberList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A25D92401F09900C1F335 /* SubscriberList.swift */; };
+		7C3A25DC240584A000C1F335 /* GamePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A25DB240584A000C1F335 /* GamePanelView.swift */; };
+		7C3A25E02405919F00C1F335 /* Subscribing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A25DF2405919F00C1F335 /* Subscribing.swift */; };
+		7C3A25E32405972D00C1F335 /* Array+isAllUnique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A25E22405972D00C1F335 /* Array+isAllUnique.swift */; };
+		7C3A25EB24059B5A00C1F335 /* Set_game_stanfordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A25EA24059B5A00C1F335 /* Set_game_stanfordTests.swift */; };
 		7C82A01623F45F700070667B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A01523F45F700070667B /* AppDelegate.swift */; };
 		7C82A01D23F45F700070667B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C82A01B23F45F700070667B /* Main.storyboard */; };
 		7C82A01F23F45F710070667B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C82A01E23F45F710070667B /* Assets.xcassets */; };
@@ -25,8 +29,24 @@
 		7CC8ADC0240135B10054BEBE /* CardBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8ADBF240135B10054BEBE /* CardBoardView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7C3A25ED24059B5A00C1F335 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7C82A00A23F45F700070667B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7C82A01123F45F700070667B;
+			remoteInfo = "Set-game_stanford";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		7C3A25D92401F09900C1F335 /* SubscriberList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriberList.swift; sourceTree = "<group>"; };
+		7C3A25DB240584A000C1F335 /* GamePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePanelView.swift; sourceTree = "<group>"; };
+		7C3A25DF2405919F00C1F335 /* Subscribing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscribing.swift; sourceTree = "<group>"; };
+		7C3A25E22405972D00C1F335 /* Array+isAllUnique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+isAllUnique.swift"; sourceTree = "<group>"; };
+		7C3A25E824059B5A00C1F335 /* Set-game_stanfordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Set-game_stanfordTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C3A25EA24059B5A00C1F335 /* Set_game_stanfordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set_game_stanfordTests.swift; sourceTree = "<group>"; };
+		7C3A25EC24059B5A00C1F335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C82A01223F45F700070667B /* Set-game_stanford.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Set-game_stanford.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C82A01523F45F700070667B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C82A01C23F45F700070667B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +67,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7C3A25E524059B5A00C1F335 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7C82A00F23F45F700070667B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,10 +84,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C3A25E12405968E00C1F335 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				7CC8ADB72400916D0054BEBE /* MachineIntelligence.swift */,
+				7C3A25D92401F09900C1F335 /* SubscriberList.swift */,
+				7CC8ADAD240085EF0054BEBE /* GameScoreManaging.swift */,
+				7C3A25E22405972D00C1F335 /* Array+isAllUnique.swift */,
+			);
+			path = support;
+			sourceTree = "<group>";
+		};
+		7C3A25E924059B5A00C1F335 /* Set-game_stanfordTests */ = {
+			isa = PBXGroup;
+			children = (
+				7C3A25EA24059B5A00C1F335 /* Set_game_stanfordTests.swift */,
+				7C3A25EC24059B5A00C1F335 /* Info.plist */,
+			);
+			path = "Set-game_stanfordTests";
+			sourceTree = "<group>";
+		};
 		7C82A00923F45F700070667B = {
 			isa = PBXGroup;
 			children = (
 				7C82A01423F45F700070667B /* Set-game_stanford */,
+				7C3A25E924059B5A00C1F335 /* Set-game_stanfordTests */,
 				7C82A01323F45F700070667B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				7C82A01223F45F700070667B /* Set-game_stanford.app */,
+				7C3A25E824059B5A00C1F335 /* Set-game_stanfordTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,13 +149,11 @@
 		7C82A02E23F5C22A0070667B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7C82A02A23F461F60070667B /* GameLogic.swift */,
+				7C3A25E12405968E00C1F335 /* support */,
 				7C82A02F23F5C2350070667B /* Card.swift */,
-				7CC8ADAD240085EF0054BEBE /* GameScoreManaging.swift */,
+				7C82A02A23F461F60070667B /* GameLogic.swift */,
 				7CC8ADAF240086140054BEBE /* SinglePlayerGame.swift */,
 				7CC8ADB524008C360054BEBE /* MultiPlayerGame.swift */,
-				7CC8ADB72400916D0054BEBE /* MachineIntelligence.swift */,
-				7C3A25D92401F09900C1F335 /* SubscriberList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +163,7 @@
 			children = (
 				7C82A03723F5F5FF0070667B /* CardView.swift */,
 				7CC8ADBF240135B10054BEBE /* CardBoardView.swift */,
+				7C3A25DB240584A000C1F335 /* GamePanelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -123,6 +171,7 @@
 		7C82A03923F5F99D0070667B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7C3A25DF2405919F00C1F335 /* Subscribing.swift */,
 				7CC8ADB92400A2450054BEBE /* SinglePlayerGameViewController.swift */,
 				7CC8ADBB2400A2830054BEBE /* MultiPlayerGameViewController.swift */,
 			);
@@ -132,6 +181,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7C3A25E724059B5A00C1F335 /* Set-game_stanfordTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C3A25EF24059B5A00C1F335 /* Build configuration list for PBXNativeTarget "Set-game_stanfordTests" */;
+			buildPhases = (
+				7C3A25E424059B5A00C1F335 /* Sources */,
+				7C3A25E524059B5A00C1F335 /* Frameworks */,
+				7C3A25E624059B5A00C1F335 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7C3A25EE24059B5A00C1F335 /* PBXTargetDependency */,
+			);
+			name = "Set-game_stanfordTests";
+			productName = "Set-game_stanfordTests";
+			productReference = 7C3A25E824059B5A00C1F335 /* Set-game_stanfordTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7C82A01123F45F700070667B /* Set-game_stanford */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C82A02623F45F710070667B /* Build configuration list for PBXNativeTarget "Set-game_stanford" */;
@@ -159,6 +226,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Олег Черных";
 				TargetAttributes = {
+					7C3A25E724059B5A00C1F335 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 7C82A01123F45F700070667B;
+					};
 					7C82A01123F45F700070667B = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -178,11 +249,19 @@
 			projectRoot = "";
 			targets = (
 				7C82A01123F45F700070667B /* Set-game_stanford */,
+				7C3A25E724059B5A00C1F335 /* Set-game_stanfordTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7C3A25E624059B5A00C1F335 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7C82A01023F45F700070667B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -196,6 +275,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7C3A25E424059B5A00C1F335 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C3A25EB24059B5A00C1F335 /* Set_game_stanfordTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7C82A00E23F45F700070667B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,18 +292,29 @@
 				7C82A02B23F461F60070667B /* GameLogic.swift in Sources */,
 				7C82A04423FB267C0070667B /* SceneDelegate.swift in Sources */,
 				7CC8ADB624008C360054BEBE /* MultiPlayerGame.swift in Sources */,
+				7C3A25DC240584A000C1F335 /* GamePanelView.swift in Sources */,
 				7C82A01623F45F700070667B /* AppDelegate.swift in Sources */,
 				7CC8ADBA2400A2450054BEBE /* SinglePlayerGameViewController.swift in Sources */,
+				7C3A25E32405972D00C1F335 /* Array+isAllUnique.swift in Sources */,
 				7CC8ADC0240135B10054BEBE /* CardBoardView.swift in Sources */,
 				7CC8ADB82400916D0054BEBE /* MachineIntelligence.swift in Sources */,
 				7C3A25DA2401F09900C1F335 /* SubscriberList.swift in Sources */,
 				7CC8ADB0240086140054BEBE /* SinglePlayerGame.swift in Sources */,
 				7C82A03023F5C2350070667B /* Card.swift in Sources */,
+				7C3A25E02405919F00C1F335 /* Subscribing.swift in Sources */,
 				7C82A03823F5F5FF0070667B /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7C3A25EE24059B5A00C1F335 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7C82A01123F45F700070667B /* Set-game_stanford */;
+			targetProxy = 7C3A25ED24059B5A00C1F335 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7C82A01B23F45F700070667B /* Main.storyboard */ = {
@@ -238,6 +336,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7C3A25F024059B5A00C1F335 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Set-game_stanfordTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "petProjects.Set-game-stanfordTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Set-game_stanford.app/Set-game_stanford";
+			};
+			name = Debug;
+		};
+		7C3A25F124059B5A00C1F335 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Set-game_stanfordTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "petProjects.Set-game-stanfordTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Set-game_stanford.app/Set-game_stanford";
+			};
+			name = Release;
+		};
 		7C82A02423F45F710070667B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -389,6 +525,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7C3A25EF24059B5A00C1F335 /* Build configuration list for PBXNativeTarget "Set-game_stanfordTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C3A25F024059B5A00C1F335 /* Debug */,
+				7C3A25F124059B5A00C1F335 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7C82A00D23F45F700070667B /* Build configuration list for PBXProject "Set-game_stanford" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

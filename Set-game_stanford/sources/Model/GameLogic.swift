@@ -31,15 +31,17 @@ class GameLogic {
     private(set) var deck: [Card] = createDeck()
     
     private var hasSet: Bool {
-        return cards.some3Permutation { $0.map{ cards[$0] }.isMatched() }
+        return cards.some3UniquePermutation { $0.map{ cards[$0] }.isMatched() }
     }
     
     var howManySets: Int {
         var setCount = 0
-        cards.some3Permutation {
+        cards.some3UniquePermutation {
             let cards = $0.map{ self.cards[$0] }
-            if cards.isMatched() { setCount += 1 }
-            
+            if cards.isMatched() {
+                setCount += 1
+            }
+
             return false
         }
         return setCount
@@ -47,7 +49,7 @@ class GameLogic {
     
     var setIndices: [Int]? {
         var indices: [Int]? = nil
-        cards.some3Permutation {
+        cards.some3UniquePermutation {
             let cards = $0.map{ self.cards[$0] }
             if cards.isMatched() {
                 indices = $0
@@ -124,14 +126,13 @@ class GameLogic {
     }
     
     func hint() {
-        cards.some3Permutation {
+        cards.some3UniquePermutation {
             let cards = $0.map{ self.cards[$0] }
             if cards.isMatched() {
-                for index in $0 {
-                    self.cards[index].isHint = true
-                }
+                $0.forEach{ self.cards[$0].isHint = true }
                 return true
             }
+            
             return false
         }
     }

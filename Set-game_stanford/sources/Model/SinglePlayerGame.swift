@@ -13,6 +13,10 @@ class SinglePlayerGame: GameScoreManaging {
         return GameLogic(gameScoreManager: self)
     }()
     
+    var setsOnBoardCount: Int {
+        return gameLogic.howManySets
+    }
+    
     private var subscriberList = SubscriberList()
     
     private(set) var score = 0

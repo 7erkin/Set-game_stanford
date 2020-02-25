@@ -14,11 +14,7 @@ class MultiPlayerGame: GameScoreManaging {
         case Machine
     }
     
-    private(set) var turn: Turn = Turn.Human {
-        didSet {
-            if self.turn == .Machine { self.machineIntelligence.startPlaying() }
-        }
-    }
+    private(set) var turn: Turn = Turn.Human
     
     private var subscriberList = SubscriberList()
     
@@ -34,7 +30,7 @@ class MultiPlayerGame: GameScoreManaging {
     private(set) var humanScore = 0
     private(set) var machineScore = 0
     
-    func add(subscriber: Subscribing) {
+    func subscribe(subscriber: Subscribing) {
         subscriberList.add(subscriber)
     }
     
@@ -59,6 +55,15 @@ class MultiPlayerGame: GameScoreManaging {
     func chooseCard(withIndex indexTappedCard: Int) {
         gameLogic.chooseCard(withIndex: indexTappedCard)
         subscriberList.notifyAll()
+        
+        let choosenCards = gameLogic.cards.filter{ $0.isChoosen }
+        if turn == .Machine && choosenCards.isEmpty {
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] _ in
+                DispatchQueue.main.async {
+                    self?.machineIntelligence.startPlaying()
+                }
+            }
+        }
     }
     
     func deal3MoreCards() {

@@ -19,7 +19,7 @@ class MachineIntelligence {
     }
     
     private var turnTimeInterval: TimeInterval {
-        return 10.0
+        return 3.0
     }
     
     init(gameMode: MultiPlayerGame, game: GameLogic) {
@@ -29,9 +29,12 @@ class MachineIntelligence {
     
     func startPlaying() {
         if haveToFindSet {
-            repeat {
+            while game.howManySets == 0 {
                 game.deal3MoreCards()
-            } while game.howManySets == 0
+                if game.deck.isEmpty {
+                    return
+                }
+            }
             
             if let indices = game.setIndices {
                 chooseCards(withIndices: indices)
