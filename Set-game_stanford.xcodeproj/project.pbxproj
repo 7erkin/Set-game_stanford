@@ -29,7 +29,6 @@
 		7CC8ADC0240135B10054BEBE /* CardBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8ADBF240135B10054BEBE /* CardBoardView.swift */; };
 		B9A789F124066DDF00D972D8 /* FIgureFilling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A789F024066DDF00D972D8 /* FIgureFilling.swift */; };
 		B9A789F324066DF100D972D8 /* FigureDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A789F224066DF100D972D8 /* FigureDrawing.swift */; };
-		B9A789F52406A74600D972D8 /* TestFigureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A789F42406A74600D972D8 /* TestFigureView.swift */; };
 		B9A789F72406BE3800D972D8 /* FigureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A789F62406BE3800D972D8 /* FigureView.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +69,6 @@
 		7CC8ADBF240135B10054BEBE /* CardBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBoardView.swift; sourceTree = "<group>"; };
 		B9A789F024066DDF00D972D8 /* FIgureFilling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIgureFilling.swift; sourceTree = "<group>"; };
 		B9A789F224066DF100D972D8 /* FigureDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureDrawing.swift; sourceTree = "<group>"; };
-		B9A789F42406A74600D972D8 /* TestFigureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFigureView.swift; sourceTree = "<group>"; };
 		B9A789F62406BE3800D972D8 /* FigureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,7 +198,6 @@
 			children = (
 				B9A789F024066DDF00D972D8 /* FIgureFilling.swift */,
 				B9A789F224066DF100D972D8 /* FigureDrawing.swift */,
-				B9A789F42406A74600D972D8 /* TestFigureView.swift */,
 				B9A789F62406BE3800D972D8 /* FigureView.swift */,
 			);
 			path = support;
@@ -315,7 +312,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9A789F52406A74600D972D8 /* TestFigureView.swift in Sources */,
 				7CC8ADAE240085EF0054BEBE /* GameScoreManaging.swift in Sources */,
 				7CC8ADBC2400A2830054BEBE /* MultiPlayerGameViewController.swift in Sources */,
 				7C82A02B23F461F60070667B /* GameLogic.swift in Sources */,

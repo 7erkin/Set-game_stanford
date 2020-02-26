@@ -13,9 +13,10 @@ class FigureView: UIView {
     var figureDrawing: FigureDrawing!
     
     override func draw(_ rect: CGRect) {
-        let path = figureDrawing.draw(rect)
+        let path = UIBezierPath()
+        figureDrawing.draw(path, in: rect)
         path.addClip()
-        // figureFilling.fill(figureRect, figurePath: path)
+        figureFilling.fill(rect, figurePath: path)
     }
 }
 

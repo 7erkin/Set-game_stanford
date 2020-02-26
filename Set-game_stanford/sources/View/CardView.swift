@@ -57,17 +57,19 @@ class CardView: UIView {
             roundedRect.stroke()
         }
         
-        let figuresView = createFiguresView(
-            color: cardSign.figureColor,
-            filling: cardSign.filling,
-            figure: cardSign.figure,
-            figuresCount: 2
-        )
-        figuresView.draw(bounds)
+        let figureViews: [FigureView] = (0..<1).map{ _ in
+            createFigureView(
+                color: cardSign.figureColor,
+                filling: cardSign.filling,
+                figure: cardSign.figure
+            )
+        }
+        
+        figureViews[0].draw(rect)
     }
 }
 
-@objc enum Filling: Int {
+enum Filling: Int {
     case solid
     case partial
     case empty

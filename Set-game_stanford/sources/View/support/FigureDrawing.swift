@@ -15,28 +15,30 @@ fileprivate let margin: CGFloat = 0.0
 protocol FigureDrawing {
     var color: UIColor! { get set }
     
-    func draw(_ rect: CGRect) -> UIBezierPath
+    func draw(_ path: UIBezierPath, in rect: CGRect)
 }
 
 struct OvalDrawing: FigureDrawing {
     var color: UIColor!
     
-    func draw(_ rect: CGRect) -> UIBezierPath {
-        let path = UIBezierPath(ovalIn: rect)
+    func draw(_ path: UIBezierPath, in rect: CGRect) {
+        path.addArc(
+            withCenter: CGPoint(x: rect.midX, y: rect.midY),
+            radius: rect.width / 2,
+            startAngle: 0,
+            endAngle: 2 * CGFloat.pi,
+            clockwise: true
+        )
         path.lineWidth = lineWidth
-        path.close()
         color.setStroke()
-        path.lineWidth = lineWidth
         path.stroke()
-        return UIBezierPath()
     }
 }
 
 struct TriangleDrawing: FigureDrawing {
     var color: UIColor!
     
-    func draw(_ rect: CGRect) -> UIBezierPath {
-        let path = UIBezierPath()
+    func draw(_ path: UIBezierPath, in rect: CGRect) {
         path.move(to: CGPoint(x: rect.size.width / 2, y: margin))
         path.addLine(to: CGPoint(x: rect.size.width - margin, y: rect.size.height - margin))
         path.addLine(to: CGPoint(x: margin, y: rect.size.height - margin))
@@ -44,15 +46,13 @@ struct TriangleDrawing: FigureDrawing {
         path.lineWidth = lineWidth
         color.setStroke()
         path.stroke()
-        return path
     }
 }
 
 struct RectangleDrawing: FigureDrawing {
     var color: UIColor!
     
-    func draw(_ rect: CGRect) -> UIBezierPath {
-        let path = UIBezierPath()
+    func draw(_ path: UIBezierPath, in rect: CGRect) {
         path.move(to: CGPoint(x: margin, y: margin))
         path.addLine(to: CGPoint(x: rect.width - margin, y: margin))
         path.addLine(to: CGPoint(x: rect.width - margin, y: rect.height - margin))
@@ -61,7 +61,6 @@ struct RectangleDrawing: FigureDrawing {
         path.lineWidth = lineWidth
         color.setStroke()
         path.stroke()
-        return UIBezierPath()
     }
 }
 
