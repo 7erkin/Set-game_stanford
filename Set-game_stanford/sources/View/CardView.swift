@@ -21,41 +21,6 @@ class CardView: UIView {
     var isVisible = false { didSet { setNeedsDisplay() } }
     var isHint = false { didSet { setNeedsLayout() } }
     
-    private var figureStack: UIStackView {
-        let figureStack = UIStackView(arrangedSubviews: figures)
-        figureStack.spacing = 20.0
-        figureStack.axis = .vertical
-        figureStack.alignment = .center
-        addSubview(figureStack)
-        return figureStack
-    }
-    
-    private var figures: [UILabel] {
-        var figures: [NSAttributedString] = []
-        let attributedString = createAttributedString()
-        
-        for _ in 0..<cardSign.figureCount {
-            figures.append(attributedString)
-        }
-        
-        return figures.map{ let label = UILabel(); label.attributedText = $0; return label }
-    }
-    
-    private func createAttributedString() -> NSAttributedString {
-        var attributes: [NSAttributedString.Key:Any] = [:]
-        switch cardSign.filling {
-            case .empty:
-                attributes[NSAttributedString.Key.strokeWidth] = 10
-                attributes[NSAttributedString.Key.strokeColor] = cardSign.figureColor
-            case .partial:
-                attributes[NSAttributedString.Key.foregroundColor] = cardSign.figureColor.withAlphaComponent(0.5)
-            case .solid:
-                attributes[NSAttributedString.Key.foregroundColor] = cardSign.figureColor
-        }
-        let string = NSAttributedString(string: cardSign.figure.rawValue, attributes: attributes)
-        return string
-    }
-    
     func applySigns(colorSign: Sign, fillingSign: Sign, figureSign: Sign, figureCountSign: Sign) {
         cardSign = CardViewSign(
             figureColor: colorSign.toColor(),
@@ -76,7 +41,7 @@ class CardView: UIView {
         guard cardSign != nil else { fatalError("In \(#function): cardSign cannot be nil") }
             
         let roundedRect = UIBezierPath(roundedRect: bounds, cornerRadius: 5.0)
-        roundedRect.addClip()
+        // roundedRect.addClip()
         UIColor.white.setFill()
         roundedRect.fill()
         
@@ -91,22 +56,27 @@ class CardView: UIView {
             roundedRect.lineWidth = 10.0
             roundedRect.stroke()
         }
-            
-        figureStack.draw(bounds)
-        figureStack.frame = bounds
+        
+        let figuresView = createFiguresView(
+            color: cardSign.figureColor,
+            filling: cardSign.filling,
+            figure: cardSign.figure,
+            figuresCount: 2
+        )
+        figuresView.draw(bounds)
     }
 }
 
-fileprivate enum Filling {
+@objc enum Filling: Int {
     case solid
     case partial
     case empty
 }
 
-fileprivate enum Figure: String {
-    case rectangle = "■"
-    case triangle = "▲"
-    case oval = "●"
+enum Figure {
+    case rectangle
+    case triangle
+    case oval
 }
 
 extension Sign {

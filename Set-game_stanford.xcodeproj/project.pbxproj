@@ -27,6 +27,10 @@
 		7CC8ADBA2400A2450054BEBE /* SinglePlayerGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8ADB92400A2450054BEBE /* SinglePlayerGameViewController.swift */; };
 		7CC8ADBC2400A2830054BEBE /* MultiPlayerGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8ADBB2400A2830054BEBE /* MultiPlayerGameViewController.swift */; };
 		7CC8ADC0240135B10054BEBE /* CardBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8ADBF240135B10054BEBE /* CardBoardView.swift */; };
+		B9A789F124066DDF00D972D8 /* FIgureFilling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A789F024066DDF00D972D8 /* FIgureFilling.swift */; };
+		B9A789F324066DF100D972D8 /* FigureDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A789F224066DF100D972D8 /* FigureDrawing.swift */; };
+		B9A789F52406A74600D972D8 /* TestFigureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A789F42406A74600D972D8 /* TestFigureView.swift */; };
+		B9A789F72406BE3800D972D8 /* FigureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A789F62406BE3800D972D8 /* FigureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +68,10 @@
 		7CC8ADB92400A2450054BEBE /* SinglePlayerGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerGameViewController.swift; sourceTree = "<group>"; };
 		7CC8ADBB2400A2830054BEBE /* MultiPlayerGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPlayerGameViewController.swift; sourceTree = "<group>"; };
 		7CC8ADBF240135B10054BEBE /* CardBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBoardView.swift; sourceTree = "<group>"; };
+		B9A789F024066DDF00D972D8 /* FIgureFilling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIgureFilling.swift; sourceTree = "<group>"; };
+		B9A789F224066DF100D972D8 /* FigureDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureDrawing.swift; sourceTree = "<group>"; };
+		B9A789F42406A74600D972D8 /* TestFigureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFigureView.swift; sourceTree = "<group>"; };
+		B9A789F62406BE3800D972D8 /* FigureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +169,7 @@
 		7C82A03623F5F5A00070667B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B9A789DD2406532900D972D8 /* support */,
 				7C82A03723F5F5FF0070667B /* CardView.swift */,
 				7CC8ADBF240135B10054BEBE /* CardBoardView.swift */,
 				7C3A25DB240584A000C1F335 /* GamePanelView.swift */,
@@ -171,11 +180,30 @@
 		7C82A03923F5F99D0070667B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7C3A25DF2405919F00C1F335 /* Subscribing.swift */,
+				B9A789DC2406510300D972D8 /* support */,
 				7CC8ADB92400A2450054BEBE /* SinglePlayerGameViewController.swift */,
 				7CC8ADBB2400A2830054BEBE /* MultiPlayerGameViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B9A789DC2406510300D972D8 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				7C3A25DF2405919F00C1F335 /* Subscribing.swift */,
+			);
+			path = support;
+			sourceTree = "<group>";
+		};
+		B9A789DD2406532900D972D8 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				B9A789F024066DDF00D972D8 /* FIgureFilling.swift */,
+				B9A789F224066DF100D972D8 /* FigureDrawing.swift */,
+				B9A789F42406A74600D972D8 /* TestFigureView.swift */,
+				B9A789F62406BE3800D972D8 /* FigureView.swift */,
+			);
+			path = support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9A789F52406A74600D972D8 /* TestFigureView.swift in Sources */,
 				7CC8ADAE240085EF0054BEBE /* GameScoreManaging.swift in Sources */,
 				7CC8ADBC2400A2830054BEBE /* MultiPlayerGameViewController.swift in Sources */,
 				7C82A02B23F461F60070667B /* GameLogic.swift in Sources */,
@@ -295,11 +324,14 @@
 				7C3A25DC240584A000C1F335 /* GamePanelView.swift in Sources */,
 				7C82A01623F45F700070667B /* AppDelegate.swift in Sources */,
 				7CC8ADBA2400A2450054BEBE /* SinglePlayerGameViewController.swift in Sources */,
+				B9A789F124066DDF00D972D8 /* FIgureFilling.swift in Sources */,
+				B9A789F324066DF100D972D8 /* FigureDrawing.swift in Sources */,
 				7C3A25E32405972D00C1F335 /* Array+isAllUnique.swift in Sources */,
 				7CC8ADC0240135B10054BEBE /* CardBoardView.swift in Sources */,
 				7CC8ADB82400916D0054BEBE /* MachineIntelligence.swift in Sources */,
 				7C3A25DA2401F09900C1F335 /* SubscriberList.swift in Sources */,
 				7CC8ADB0240086140054BEBE /* SinglePlayerGame.swift in Sources */,
+				B9A789F72406BE3800D972D8 /* FigureView.swift in Sources */,
 				7C82A03023F5C2350070667B /* Card.swift in Sources */,
 				7C3A25E02405919F00C1F335 /* Subscribing.swift in Sources */,
 				7C82A03823F5F5FF0070667B /* CardView.swift in Sources */,
