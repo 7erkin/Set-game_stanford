@@ -7,16 +7,160 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CDA13898-3AB2-4F54-82BE-E76C5831F8C9"
+            uuid = "1FFE00CE-DD87-40DE-8474-F74FA4AAEF39"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Set-game_stanford/sources/Model/support/MachineIntelligence.swift"
+            filePath = "Set-game_stanford/sources/View/support/FigureView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "startPlaying()"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "draw(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F56ADDA2-E18C-42CB-A00E-BB902B744417"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Set-game_stanford/sources/View/support/FiguresView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "descr"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A58CAC9-A45B-451A-A850-6E2B6703CF60"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Set-game_stanford/sources/View/support/FiguresView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "descr"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "6A58CAC9-A45B-451A-A850-6E2B6703CF60 - 3b4c0e8414b1a667"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Set_game_stanford.FiguresView.descr.didset : Swift.Optional&lt;Set_game_stanford.Description&gt;"
+                  moduleName = "Set-game_stanford"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oleg/Desktop/dev/iOS/Stanford/Set-game_stanford/Set-game_stanford/sources/View/support/FiguresView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1164">
+               </Location>
+               <Location
+                  uuid = "6A58CAC9-A45B-451A-A850-6E2B6703CF60 - 62259825f92d41a9"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Set_game_stanford.FigureView) -&gt; () in Set_game_stanford.FiguresView.descr.didset : Swift.Optional&lt;Set_game_stanford.Description&gt;"
+                  moduleName = "Set-game_stanford"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oleg/Desktop/dev/iOS/Stanford/Set-game_stanford/Set-game_stanford/sources/View/support/FiguresView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D21BD6C-451D-40A4-B995-2A09364F59BD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Set-game_stanford/sources/View/support/FiguresView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "descr"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "4D21BD6C-451D-40A4-B995-2A09364F59BD - 3b4c0e8414b1a667"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Set_game_stanford.FiguresView.descr.didset : Swift.Optional&lt;Set_game_stanford.Description&gt;"
+                  moduleName = "Set-game_stanford"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oleg/Desktop/dev/iOS/Stanford/Set-game_stanford/Set-game_stanford/sources/View/support/FiguresView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "70">
+               </Location>
+               <Location
+                  uuid = "4D21BD6C-451D-40A4-B995-2A09364F59BD - ff6fa80fdf221384"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UIView) -&gt; () in Set_game_stanford.FiguresView.descr.didset : Swift.Optional&lt;Set_game_stanford.Description&gt;"
+                  moduleName = "Set-game_stanford"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oleg/Desktop/dev/iOS/Stanford/Set-game_stanford/Set-game_stanford/sources/View/support/FiguresView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "633BAA74-359E-4439-B588-E6A0C23B271A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Set-game_stanford/sources/View/CardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "figuresView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A7A302A-F2E7-4649-8E5D-DA9C750B3625"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Set-game_stanford/sources/View/support/FiguresView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "layoutSubviews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

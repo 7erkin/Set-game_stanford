@@ -8,64 +8,36 @@
 
 import UIKit
 
-fileprivate struct CardViewSign {
-    var figureColor: UIColor
-    var filling: Filling
-    var figure: Figure
-    var figureCount: Int
-}
-
 class CardView: UIView {
-    private var cardSign: CardViewSign! { didSet { setNeedsDisplay() } }
-    var isChoosen = false { didSet { setNeedsDisplay() } }
-    var isVisible = false { didSet { setNeedsDisplay() } }
-    var isHint = false { didSet { setNeedsLayout() } }
+    private let margin: CGFloat = 10
+    
+    var isChoosen = false { didSet {  } }
+    var isVisible = false {
+        didSet {
+            self.backgroundColor = self.isVisible ? .white : .clear
+        }
+    }
+    var isHint = false { didSet {  } }
+    
+    private lazy var figuresView: FiguresView = {
+        let figuresView = FiguresView(frame: bounds)
+        addSubview(figuresView)
+        return figuresView
+    }()
     
     func applySigns(colorSign: Sign, fillingSign: Sign, figureSign: Sign, figureCountSign: Sign) {
-        cardSign = CardViewSign(
-            figureColor: colorSign.toColor(),
-            filling: fillingSign.toFilling(),
+        figuresView.descr = Description(
+            figuresCount: figureCountSign.toFigureCount(),
             figure: figureSign.toFigure(),
-            figureCount: figureCountSign.toFigureCount()
+            filling: fillingSign.toFilling(),
+            color: colorSign.toColor()
         )
         setNeedsDisplay()
+        setNeedsLayout()
     }
     
-    override func draw(_ rect: CGRect) {
-        subviews.forEach{ $0.removeFromSuperview() }
-        if !isVisible {
-            backgroundColor = .clear
-            return
-        }
-        
-        guard cardSign != nil else { fatalError("In \(#function): cardSign cannot be nil") }
-            
-        let roundedRect = UIBezierPath(roundedRect: bounds, cornerRadius: 5.0)
-        // roundedRect.addClip()
-        UIColor.white.setFill()
-        roundedRect.fill()
-        
-        if isHint {
-            UIColor.blue.setStroke()
-            roundedRect.lineWidth = 10.0
-            roundedRect.stroke()
-        }
-        
-        if isChoosen {
-            UIColor.red.setStroke()
-            roundedRect.lineWidth = 10.0
-            roundedRect.stroke()
-        }
-        
-        let figureViews: [FigureView] = (0..<1).map{ _ in
-            createFigureView(
-                color: cardSign.figureColor,
-                filling: cardSign.filling,
-                figure: cardSign.figure
-            )
-        }
-        
-        figureViews[0].draw(rect)
+    override func layoutSubviews() {
+        figuresView.frame = CGRect(x: margin, y: margin, width: bounds.width - 2 * margin, height: bounds.height - 2 * margin)
     }
 }
 
