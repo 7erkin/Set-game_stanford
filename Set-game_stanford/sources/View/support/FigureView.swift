@@ -12,6 +12,15 @@ class FigureView: UIView {
     var figureFilling: FigureFilling!
     var figureDrawing: FigureDrawing!
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .clear
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
         figureDrawing.draw(path, in: rect)

@@ -22,12 +22,12 @@ struct EmptyFilling: FigureFilling {
 }
 
 struct PartialFilling: FigureFilling {
-    private let spacingBeetwenStripes: CGFloat = 10 
+    private let spacingBeetwenStripes: CGFloat = 3
     var color: UIColor!
     
     func fill(_ rect: CGRect, figurePath: UIBezierPath) {
         let stripeLineCount = Int(rect.height / spacingBeetwenStripes)
-        for i in 0..<stripeLineCount {
+        for i in 0...stripeLineCount {
             let stripePath = UIBezierPath()
             stripePath.move(to: CGPoint(x: 0, y: spacingBeetwenStripes * CGFloat(i)))
             stripePath.addLine(to: CGPoint(x: rect.width, y: spacingBeetwenStripes * CGFloat(i)))

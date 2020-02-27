@@ -20,7 +20,7 @@ class CardView: UIView {
     var isHint = false { didSet {  } }
     
     private lazy var figuresView: FiguresView = {
-        let figuresView = FiguresView(frame: bounds)
+        let figuresView = FiguresView()
         addSubview(figuresView)
         return figuresView
     }()
@@ -38,6 +38,7 @@ class CardView: UIView {
     
     override func layoutSubviews() {
         figuresView.frame = CGRect(x: margin, y: margin, width: bounds.width - 2 * margin, height: bounds.height - 2 * margin)
+        figuresView.center = CGPoint(x: bounds.midX, y: bounds.midY)
     }
 }
 
