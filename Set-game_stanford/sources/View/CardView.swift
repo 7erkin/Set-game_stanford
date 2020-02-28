@@ -11,13 +11,10 @@ import UIKit
 class CardView: UIView {
     private let margin: CGFloat = 10
     
-    var isChoosen = false { didSet {  } }
-    var isVisible = false {
-        didSet {
-            self.backgroundColor = self.isVisible ? .white : .clear
-        }
-    }
-    var isHint = false { didSet {  } }
+    var isChoosen = false { didSet { setNeedsDisplay() } }
+    var isHinted = false { didSet { setNeedsDisplay() } }
+    var isFaceUp = false { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var isMatched = false { didSet { setNeedsDisplay() } }
     
     private lazy var figuresView: FiguresView = {
         let figuresView = FiguresView()
@@ -26,7 +23,7 @@ class CardView: UIView {
     }()
     
     func applySigns(colorSign: Sign, fillingSign: Sign, figureSign: Sign, figureCountSign: Sign) {
-        figuresView.descr = Description(
+        figuresView.figuresDescription = FiguresDescription(
             figuresCount: figureCountSign.toFigureCount(),
             figure: figureSign.toFigure(),
             filling: fillingSign.toFilling(),
@@ -36,7 +33,50 @@ class CardView: UIView {
         setNeedsLayout()
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .clear
+        clearsContextBeforeDrawing = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func draw(_ rect: CGRect) {
+        /* drawing card */
+        let path = UIBezierPath(roundedRect: bounds, cornerRadius: 5.0)
+        path.addClip()
+        
+        if !isFaceUp {
+            UIColor.red.setFill()
+            path.fill()
+            return
+        }
+        
+        UIColor.white.setFill()
+        path.fill()
+        
+        /* drawing choosen card */
+        if isChoosen {
+            UIColor.black.setFill()
+            path.fill()
+        } else {
+            UIColor.white.setFill()
+            path.fill()
+        }
+        /* drawing hinted card */
+        if isHinted {
+            UIColor.brown.setFill()
+            path.fill()
+        } else {
+            UIColor.white.setFill()
+            path.fill()
+        }
+    }
+    
     override func layoutSubviews() {
+        figuresView.isHidden = !isFaceUp
         figuresView.frame = CGRect(x: margin, y: margin, width: bounds.width - 2 * margin, height: bounds.height - 2 * margin)
         figuresView.center = CGPoint(x: bounds.midX, y: bounds.midY)
     }

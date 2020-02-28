@@ -24,7 +24,7 @@ struct OvalDrawing: FigureDrawing {
     func draw(_ path: UIBezierPath, in rect: CGRect) {
         path.addArc(
             withCenter: CGPoint(x: rect.midX, y: rect.midY),
-            radius: rect.width / 2,
+            radius: CGFloat.minimum(rect.width, rect.height) / 2,
             startAngle: 0,
             endAngle: 2 * CGFloat.pi,
             clockwise: true

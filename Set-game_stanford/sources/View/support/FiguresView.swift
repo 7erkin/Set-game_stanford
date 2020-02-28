@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Description {
+struct FiguresDescription {
     var figuresCount: Int
     var figure: Figure
     var filling: Filling
@@ -18,11 +18,11 @@ struct Description {
 fileprivate let maxFigures = 3
 
 class FiguresView: UIView {
-    var descr: Description! {
+    var figuresDescription: FiguresDescription! {
         didSet {
             subviews.forEach{ $0.removeFromSuperview() }
-            let figures: [FigureView] = (0..<self.descr.figuresCount).map{ _ in
-                createFigureView(color: self.descr.color, filling: self.descr.filling, figure: self.descr.figure)
+            let figures: [FigureView] = (0..<self.figuresDescription.figuresCount).map{ _ in
+                createFigureView(color: self.figuresDescription.color, filling: self.figuresDescription.filling, figure: self.figuresDescription.figure)
             }
             figures.forEach{ addSubview($0) }
         }

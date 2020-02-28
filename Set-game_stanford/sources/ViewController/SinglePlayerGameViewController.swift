@@ -10,10 +10,12 @@ import UIKit
 
 fileprivate var initialCardCount = 12
 
-class SinglePlayerGameViewController: UIViewController, Subscribing {
+class SinglePlayerGameViewController: UIViewController, Subscribing, MatchedCardReplacing {
     @IBOutlet private var deckCardCountLabel: UILabel!
     @IBOutlet private var scoreLabel: UILabel!
-    @IBOutlet var cardBoardView: CardBoardView!
+    @IBOutlet var cardBoardView: CardBoardView! {
+        didSet { self.cardBoardView.matchedCardReplacingDelegate = self }
+    }
     @IBOutlet var gamePanelView: GamePanelView! {
         didSet {
             self.gamePanelView.hintButton.addTarget(self, action: #selector(onHintButtonTapped(_:)), for: UIControl.Event.touchUpInside)
@@ -44,7 +46,7 @@ class SinglePlayerGameViewController: UIViewController, Subscribing {
     @objc private func handleCardTap(sender: UITapGestureRecognizer) {
         guard
             let tappedCard = sender.view as? CardView,
-            let indexTappedCard = cardBoardView.cards.firstIndex(of: tappedCard),
+            let indexTappedCard = cardBoardView.cardsOnBoard.firstIndex(of: tappedCard),
             indexTappedCard < game.cards.count
         else { return }
         
@@ -55,21 +57,14 @@ class SinglePlayerGameViewController: UIViewController, Subscribing {
         deckCardCountLabel.text = "Deck: \(game.deck.count)"
         scoreLabel.text = "Score: \(game.score)"
         gamePanelView.setsOnBoardCount = game.setsOnBoardCount
-        print("How many cards: \(game.cards.count)")
-        for (index, card) in cardBoardView.cards.enumerated() {
-            if index < game.cards.count {
-                if game.cards[index].isMatched {
-                    card.isVisible = false
-                    continue
-                }
-                let signs = game.cards[index].signs
-                card.applySigns(colorSign: signs[0], fillingSign: signs[1], figureSign: signs[2], figureCountSign: signs[3])
-                card.isChoosen = game.cards[index].isChoosen
-                card.isVisible = true
-                card.isHint = game.cards[index].isHint
-            } else {
-                card.isVisible = false
-            }
+        for (index, cardOnBoard) in game.cards[0..<cardBoardView.cardsOnBoard.count].enumerated() {
+            let cardView = cardBoardView.cardsOnBoard[index]
+            configure(cardView, with: cardOnBoard)
+        }
+        for newDealtCard in game.cards[cardBoardView.cardsOnBoard.count...] {
+            let cardView = CardView()
+            configure(cardView, with: newDealtCard)
+            cardBoardView.add(cardView)
         }
     }
     
@@ -81,9 +76,26 @@ class SinglePlayerGameViewController: UIViewController, Subscribing {
     }
     
     private func configureCards() {
-        for (_, card) in cardBoardView.cards.enumerated() {
+        for (_, card) in cardBoardView.cardsOnBoard.enumerated() {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleCardTap(sender:)))
             card.addGestureRecognizer(tapGesture)
         }
+    }
+    
+    private func configure(_ cardView: CardView, with cardModel: Card) {
+        cardView.applySigns(
+            colorSign: cardModel.signs[0],
+            fillingSign: cardModel.signs[1],
+            figureSign: cardModel.signs[2],
+            figureCountSign: cardModel.signs[3]
+        )
+        cardView.isChoosen = cardModel.isChoosen
+        cardView.isHinted = cardModel.isHint
+        cardView.isMatched = cardModel.isMatched
+    }
+    
+    // MARK: MatchedCardReplacing impl
+    func replaceMatchedCards() {
+        game.replaceMatchedCards()
     }
 }

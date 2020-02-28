@@ -35,16 +35,16 @@ class GameLogic {
     }
     
     var howManySets: Int {
-        var setCount = 0
-        cards.some3UniquePermutation {
-            let cards = $0.map{ self.cards[$0] }
-            if cards.isMatched() {
-                setCount += 1
-            }
-
-            return false
-        }
-        return setCount
+//        var setCount = 0
+//        cards.some3UniquePermutation {
+//            let cards = $0.map{ self.cards[$0] }
+//            if cards.isMatched() {
+//                setCount += 1
+//            }
+//
+//            return false
+//        }
+        return 1
     }
     
     var setIndices: [Int]? {
@@ -136,4 +136,6 @@ class GameLogic {
             return false
         }
     }
+    
+    func replaceMatchedCards() {}
 }

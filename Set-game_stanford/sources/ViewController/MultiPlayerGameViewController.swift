@@ -42,7 +42,7 @@ class MultiPlayerGameViewController: UIViewController, Subscribing {
     @objc private func handleCardTap(sender: UITapGestureRecognizer) {
         guard
             let tappedCard = sender.view as? CardView,
-            let indexTappedCard = cardBoardView.cards.firstIndex(of: tappedCard),
+            let indexTappedCard = cardBoardView.cardsOnBoard.firstIndex(of: tappedCard),
             indexTappedCard < game.cards.count
         else { return }
         
@@ -57,30 +57,13 @@ class MultiPlayerGameViewController: UIViewController, Subscribing {
     }
     
     private func configureCards() {
-        for (_, card) in cardBoardView.cards.enumerated() {
+        for (_, card) in cardBoardView.cardsOnBoard.enumerated() {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleCardTap(sender:)))
             card.addGestureRecognizer(tapGesture)
         }
     }
     
     func update() {
-        deckCardCountLabel.text = "Deck: \(game.deck.count)"
-        humanScoreLabel.text = "Human score: \(game.humanScore)"
-        machineScoreLabel.text = "Machine score: \(game.machineScore)"
-        for (index, card) in cardBoardView.cards.enumerated() {
-            if index < game.cards.count {
-                if game.cards[index].isMatched {
-                    card.isVisible = false
-                    continue
-                }
-                let signs = game.cards[index].signs
-                card.applySigns(colorSign: signs[0], fillingSign: signs[1], figureSign: signs[2], figureCountSign: signs[3])
-                card.isChoosen = game.cards[index].isChoosen
-                card.isVisible = true
-                card.isHint = game.cards[index].isHint
-            } else {
-                card.isVisible = false
-            }
-        }
+        
     }
 }

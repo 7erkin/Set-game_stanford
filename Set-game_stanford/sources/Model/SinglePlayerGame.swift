@@ -49,6 +49,11 @@ class SinglePlayerGame: GameScoreManaging {
         subscriberList.notifyAll()
     }
     
+    func replaceMatchedCards() {
+        gameLogic.replaceMatchedCards()
+        subscriberList.notifyAll()
+    }
+    
     func addPoint() {
         score += 1
         subscriberList.notifyAll()

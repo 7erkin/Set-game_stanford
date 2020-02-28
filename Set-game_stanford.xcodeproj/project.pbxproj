@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C12DF0C240877AB003A0959 /* MatchedCardReplacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C12DF0B240877AB003A0959 /* MatchedCardReplacing.swift */; };
 		7C3A25DA2401F09900C1F335 /* SubscriberList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A25D92401F09900C1F335 /* SubscriberList.swift */; };
 		7C3A25DC240584A000C1F335 /* GamePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A25DB240584A000C1F335 /* GamePanelView.swift */; };
 		7C3A25E02405919F00C1F335 /* Subscribing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A25DF2405919F00C1F335 /* Subscribing.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C12DF0B240877AB003A0959 /* MatchedCardReplacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedCardReplacing.swift; sourceTree = "<group>"; };
 		7C3A25D92401F09900C1F335 /* SubscriberList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriberList.swift; sourceTree = "<group>"; };
 		7C3A25DB240584A000C1F335 /* GamePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePanelView.swift; sourceTree = "<group>"; };
 		7C3A25DF2405919F00C1F335 /* Subscribing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscribing.swift; sourceTree = "<group>"; };
@@ -102,9 +104,6 @@
 				7CC8ADB72400916D0054BEBE /* MachineIntelligence.swift */,
 				7C3A25D92401F09900C1F335 /* SubscriberList.swift */,
 				7CC8ADAD240085EF0054BEBE /* GameScoreManaging.swift */,
-				7C3A25E22405972D00C1F335 /* Array+isAllUnique.swift */,
-				7CC6C2DF2408409400E51B57 /* Array+chunked.swift */,
-				7CC6C2E12408412400E51B57 /* Array+forEachWithIndex.swift */,
 			);
 			path = support;
 			sourceTree = "<group>";
@@ -149,6 +148,7 @@
 		7C82A02923F45FB80070667B /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				7CC6C2E32408555000E51B57 /* support */,
 				7C82A02E23F5C22A0070667B /* Model */,
 				7C82A03623F5F5A00070667B /* View */,
 				7C82A03923F5F99D0070667B /* ViewController */,
@@ -193,6 +193,16 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		7CC6C2E32408555000E51B57 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				7C3A25E22405972D00C1F335 /* Array+isAllUnique.swift */,
+				7CC6C2DF2408409400E51B57 /* Array+chunked.swift */,
+				7CC6C2E12408412400E51B57 /* Array+forEachWithIndex.swift */,
+			);
+			path = support;
+			sourceTree = "<group>";
+		};
 		B9A789DC2406510300D972D8 /* support */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +218,7 @@
 				B9A789F224066DF100D972D8 /* FigureDrawing.swift */,
 				B9A789F62406BE3800D972D8 /* FigureView.swift */,
 				7CC6C2DD24070F3400E51B57 /* FiguresView.swift */,
+				7C12DF0B240877AB003A0959 /* MatchedCardReplacing.swift */,
 			);
 			path = support;
 			sourceTree = "<group>";
@@ -343,6 +354,7 @@
 				7CC6C2E02408409400E51B57 /* Array+chunked.swift in Sources */,
 				7C3A25E02405919F00C1F335 /* Subscribing.swift in Sources */,
 				7C82A03823F5F5FF0070667B /* CardView.swift in Sources */,
+				7C12DF0C240877AB003A0959 /* MatchedCardReplacing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
