@@ -71,6 +71,21 @@ class GameLogic {
         }
     }
     
+    func replaceMatchedCards() {
+        cards = cards.map{ card in
+            if card.isChoosen {
+                if deck.isEmpty {
+                    var copy = card
+                    copy.isMatched = true
+                    copy.isChoosen = false
+                    return copy
+                }
+                return deck.removeLast()
+            }
+            return card
+        }
+    }
+    
     func chooseCard(withIndex index: Int) {
         cards[index].isChoosen = true
         
@@ -83,18 +98,7 @@ class GameLogic {
         
         if choosenCards.isMatched() {
             delegate.addPoint()
-            cards = cards.map{ card in
-                if card.isChoosen {
-                    if deck.isEmpty {
-                        var copy = card
-                        copy.isMatched = true
-                        copy.isChoosen = false
-                        return copy
-                    }
-                    return deck.removeLast()
-                }
-                return card
-            }
+            replaceMatchedCards()
         } else {
             delegate.removePoint(reason: .WrongSet)
             cards = cards.map{ var copy = $0; copy.isChoosen = false; return copy }
@@ -136,6 +140,4 @@ class GameLogic {
             return false
         }
     }
-    
-    func replaceMatchedCards() {}
 }

@@ -51,7 +51,6 @@ class MultiPlayerGameViewController: UIViewController, Subscribing {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureCards()
         update()
     }

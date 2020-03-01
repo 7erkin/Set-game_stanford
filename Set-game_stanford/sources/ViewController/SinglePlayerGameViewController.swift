@@ -10,11 +10,17 @@ import UIKit
 
 fileprivate var initialCardCount = 12
 
-class SinglePlayerGameViewController: UIViewController, Subscribing, MatchedCardReplacing {
+class SinglePlayerGameViewController: UIViewController, Subscribing, MatchedCardReplacing, CardTapping {
     @IBOutlet private var deckCardCountLabel: UILabel!
     @IBOutlet private var scoreLabel: UILabel!
     @IBOutlet var cardBoardView: CardBoardView! {
-        didSet { self.cardBoardView.matchedCardReplacingDelegate = self }
+        didSet {
+            self.cardBoardView.matchedCardReplacingDelegate = self
+            self.cardBoardView.cardTappingDelegate = self
+            let deal3MoreCardsGesture = UISwipeGestureRecognizer(target: self, action: #selector(onDeal3MoreCardsButtonTapped(_:)))
+            deal3MoreCardsGesture.direction = .down
+            self.cardBoardView.addGestureRecognizer(deal3MoreCardsGesture)
+        }
     }
     @IBOutlet var gamePanelView: GamePanelView! {
         didSet {
@@ -24,7 +30,7 @@ class SinglePlayerGameViewController: UIViewController, Subscribing, MatchedCard
         }
     }
     
-    @IBAction private func onDeal3MoreCardsButtonTapped(_ sender: UIButton) {
+    @IBAction private func onDeal3MoreCardsButtonTapped(_ sender: Any) {
         game.deal3MoreCards()
         update()
     }
@@ -43,43 +49,29 @@ class SinglePlayerGameViewController: UIViewController, Subscribing, MatchedCard
         return game
     }()
     
-    @objc private func handleCardTap(sender: UITapGestureRecognizer) {
-        guard
-            let tappedCard = sender.view as? CardView,
-            let indexTappedCard = cardBoardView.cardsOnBoard.firstIndex(of: tappedCard),
-            indexTappedCard < game.cards.count
-        else { return }
-        
-        game.chooseCard(withIndex: indexTappedCard)
-    }
-    
     func update() {
         deckCardCountLabel.text = "Deck: \(game.deck.count)"
         scoreLabel.text = "Score: \(game.score)"
         gamePanelView.setsOnBoardCount = game.setsOnBoardCount
+        gamePanelView.deal3MoreCardsButton.isHidden = game.deck.isEmpty
         for (index, cardOnBoard) in game.cards[0..<cardBoardView.cardsOnBoard.count].enumerated() {
             let cardView = cardBoardView.cardsOnBoard[index]
             configure(cardView, with: cardOnBoard)
         }
-        for newDealtCard in game.cards[cardBoardView.cardsOnBoard.count...] {
+        let newDealtCards = game.cards[cardBoardView.cardsOnBoard.count...]
+        let newDealtCardViews = newDealtCards.reduce([CardView]()) {
+            var copy = $0
             let cardView = CardView()
-            configure(cardView, with: newDealtCard)
-            cardBoardView.add(cardView)
+            configure(cardView, with: $1)
+            copy.append(cardView)
+            return copy
         }
+        cardBoardView.add(newDealtCardViews)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureCards()
         update()
-    }
-    
-    private func configureCards() {
-        for (_, card) in cardBoardView.cardsOnBoard.enumerated() {
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleCardTap(sender:)))
-            card.addGestureRecognizer(tapGesture)
-        }
     }
     
     private func configure(_ cardView: CardView, with cardModel: Card) {
@@ -97,5 +89,16 @@ class SinglePlayerGameViewController: UIViewController, Subscribing, MatchedCard
     // MARK: MatchedCardReplacing impl
     func replaceMatchedCards() {
         game.replaceMatchedCards()
+    }
+    
+    // MARK: CardTapping impl
+    @objc internal func cardTapped(_ gesture: UITapGestureRecognizer) {
+        guard
+            let tappedCard = gesture.view as? CardView,
+            let indexTappedCard = cardBoardView.cardsOnBoard.firstIndex(of: tappedCard),
+            indexTappedCard < game.cards.count
+        else { return }
+
+        game.chooseCard(withIndex: indexTappedCard)
     }
 }

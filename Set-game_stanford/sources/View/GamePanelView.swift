@@ -52,14 +52,22 @@ class GamePanelView: UIStackView {
         }
     }
     
-    override func layoutSubviews() {
-        if subviews.isEmpty {
-            configureButtons()
-            panelButtons.forEach{ addArrangedSubview($0) }
-            alignment = .fill
-            distribution = .fillEqually
-            axis = .horizontal
-            spacing = 10.0
-        }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+    }
+    
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+        configure()
+    }
+    
+    private func configure() {
+        configureButtons()
+        panelButtons.forEach{ addArrangedSubview($0) }
+        alignment = .fill
+        distribution = .fillEqually
+        axis = .horizontal
+        spacing = 10.0
     }
 }

@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BC91A800-5187-4961-94C2-10C18F584BA2"
+            uuid = "1862939D-6D58-4BBD-B172-8F8900F3CD65"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Set-game_stanford/sources/View/CardBoardView.swift"
+            filePath = "Set-game_stanford/sources/View/CardView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "layoutSubviews()"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "draw(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

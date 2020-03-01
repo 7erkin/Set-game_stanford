@@ -11,6 +11,17 @@ import UIKit
 class CardView: UIView {
     private let margin: CGFloat = 10
     
+    private lazy var hintedAnimator: UIViewPropertyAnimator = {
+        let animator = UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: 0.5,
+            delay: 0.0,
+            options: [.autoreverse, .repeat],
+            animations: {},
+            completion: nil
+        )
+        return animator
+    }()
+    
     var isChoosen = false { didSet { setNeedsDisplay() } }
     var isHinted = false { didSet { setNeedsDisplay() } }
     var isFaceUp = false { didSet { setNeedsDisplay(); setNeedsLayout() } }
@@ -60,14 +71,6 @@ class CardView: UIView {
         /* drawing choosen card */
         if isChoosen {
             UIColor.black.setFill()
-            path.fill()
-        } else {
-            UIColor.white.setFill()
-            path.fill()
-        }
-        /* drawing hinted card */
-        if isHinted {
-            UIColor.brown.setFill()
             path.fill()
         } else {
             UIColor.white.setFill()
