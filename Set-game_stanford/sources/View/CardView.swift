@@ -68,14 +68,22 @@ class CardView: UIView {
         UIColor.white.setFill()
         path.fill()
         
-        /* drawing choosen card */
-        if isChoosen {
-            UIColor.black.setFill()
+        if isHinted {
+            UIColor.red.setFill()
             path.fill()
         } else {
             UIColor.white.setFill()
             path.fill()
         }
+        
+        /* drawing choosen card */
+//        if isChoosen {
+//            UIColor.black.setFill()
+//            path.fill()
+//        } else {
+//            UIColor.white.setFill()
+//            path.fill()
+//        }
     }
     
     override func layoutSubviews() {

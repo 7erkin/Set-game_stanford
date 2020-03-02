@@ -12,7 +12,17 @@ fileprivate var spacingBetweenCards = CGFloat(5.0)
 
 @IBDesignable
 class CardBoardView: UIStackView {
-    private(set) var cardsOnBoard: [CardView] = []
+    private(set) var cardsOnBoard: [CardView] = [] {
+        didSet {
+            setNeedsLayout()
+        }
+        willSet {
+            if newValue.isEmpty {
+                self.cardsOnBoard.forEach{ $0.removeFromSuperview() }
+                setNeedsLayout()
+            }
+        }
+    }
     private var cardsTranslationUnit: [Int] = []
     
     func add(_ cardViews: [CardView]) {
@@ -30,6 +40,11 @@ class CardBoardView: UIStackView {
     
     @objc private func onCardTapped(_ gesture: UITapGestureRecognizer) {
         cardTappingDelegate.cardTapped(gesture)
+    }
+    
+    func clean() {
+        cardsOnBoard = []
+        cardsTranslationUnit = []
     }
     
     private func calculateCardFrames() -> [CGRect] {
@@ -73,21 +88,25 @@ class CardBoardView: UIStackView {
         }
     }
     
-    /* Q: called many times first time */
     override func layoutSubviews() {
         super.layoutSubviews()
         
         guard cardsOnBoard.count != 0 else { return }
         
-        let (oldCards, newCards) = cardsOnBoard.reduce(([CardView](), [CardView]())){ acc, el in
+        let (oldCards, newCards, matchedCards) = cardsOnBoard.reduce(([CardView](), [CardView](), [CardView]())){ acc, el in
             var copy = acc
             if el.frame == CGRect.zero {
                 copy.1.append(el)
             } else {
                 copy.0.append(el)
+                if el.isMatched {
+                    copy.2.append(el)
+                }
             }
             return copy
         }
+        
+        
         
         var frames = calculateCardFrames()
         /* Must be set proper options */
@@ -99,6 +118,22 @@ class CardBoardView: UIStackView {
                 options: [.allowUserInteraction],
                 animations: { card.frame = frames[index] },
                 completion: nil
+            )
+        }
+        matchedCards.forEach{ card in
+            let matchedCardTransform = CGAffineTransform(translationX: bounds.width, y: -500).rotated(by: 2 * CGFloat.pi)
+            UIView.animate(
+                withDuration: 1.0,
+                animations: {
+                    card.transform = matchedCardTransform
+                },
+                completion: {[weak self] _ in
+                    card.frame = CGRect.zero
+                    card.isFaceUp = false
+                    if card === matchedCards.last! {
+                        self?.matchedCardReplacingDelegate.replaceMatchedCards()
+                    }
+                }
             )
         }
         frames = Array(frames[oldCards.count...])

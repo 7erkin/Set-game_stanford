@@ -54,6 +54,11 @@ class SinglePlayerGameViewController: UIViewController, Subscribing, MatchedCard
         scoreLabel.text = "Score: \(game.score)"
         gamePanelView.setsOnBoardCount = game.setsOnBoardCount
         gamePanelView.deal3MoreCardsButton.isHidden = game.deck.isEmpty
+        
+        if game.cards.count < cardBoardView.cardsOnBoard.count {
+            cardBoardView.clean()
+        }
+        
         for (index, cardOnBoard) in game.cards[0..<cardBoardView.cardsOnBoard.count].enumerated() {
             let cardView = cardBoardView.cardsOnBoard[index]
             configure(cardView, with: cardOnBoard)

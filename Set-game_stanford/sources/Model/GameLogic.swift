@@ -97,8 +97,10 @@ class GameLogic {
         if choosenCards.count != cardCountToMatch { return }
         
         if choosenCards.isMatched() {
+            for index in cards.indices where cards[index].isChoosen {
+                cards[index].isMatched = true
+            }
             delegate.addPoint()
-            replaceMatchedCards()
         } else {
             delegate.removePoint(reason: .WrongSet)
             cards = cards.map{ var copy = $0; copy.isChoosen = false; return copy }
