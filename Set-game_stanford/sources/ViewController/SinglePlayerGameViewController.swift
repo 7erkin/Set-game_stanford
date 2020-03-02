@@ -10,13 +10,37 @@ import UIKit
 
 fileprivate var initialCardCount = 12
 
-class SinglePlayerGameViewController: UIViewController, Subscribing, MatchedCardReplacing, CardTapping {
+@IBDesignable
+class ScoreLabel: UILabel {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 7 * 70 / 5, height: 70)
+    }
+    
+    override func draw(_ rect: CGRect) {
+        let image = UIImage(named: "stanford-logo")!
+        let backgroundImage = UIImage(cgImage: image.cgImage!, scale: image.scale, orientation: .left)
+        backgroundImage.draw(in: bounds)
+        layer.cornerRadius = 5.0
+        layer.masksToBounds = true
+    }
+}
+
+class SinglePlayerGameViewController: UIViewController, Subscribing, MatchedCardReplacing, CardTapping, RemovedCardPositionInforming {
     @IBOutlet private var deckCardCountLabel: UILabel!
-    @IBOutlet private var scoreLabel: UILabel!
+    @IBOutlet private var scoreLabel: ScoreLabel!
     @IBOutlet var cardBoardView: CardBoardView! {
         didSet {
             self.cardBoardView.matchedCardReplacingDelegate = self
             self.cardBoardView.cardTappingDelegate = self
+            self.cardBoardView.removedCardPositionInformingDelegate = self
             let deal3MoreCardsGesture = UISwipeGestureRecognizer(target: self, action: #selector(onDeal3MoreCardsButtonTapped(_:)))
             deal3MoreCardsGesture.direction = .down
             self.cardBoardView.addGestureRecognizer(deal3MoreCardsGesture)
@@ -105,5 +129,10 @@ class SinglePlayerGameViewController: UIViewController, Subscribing, MatchedCard
         else { return }
 
         game.chooseCard(withIndex: indexTappedCard)
+    }
+    
+    // MARK: RemovedCardPositionInforming impl
+    var removedCardPosition: CGRect {
+        return scoreLabel.convert(scoreLabel.frame, to: view)
     }
 }

@@ -15,6 +15,7 @@
 		7C3A25E02405919F00C1F335 /* Subscribing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A25DF2405919F00C1F335 /* Subscribing.swift */; };
 		7C3A25E32405972D00C1F335 /* Array+isAllUnique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A25E22405972D00C1F335 /* Array+isAllUnique.swift */; };
 		7C3A25EB24059B5A00C1F335 /* Set_game_stanfordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3A25EA24059B5A00C1F335 /* Set_game_stanfordTests.swift */; };
+		7C66DC54240DCF0F00560CC6 /* RemovedCardPositionInforming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C66DC53240DCF0F00560CC6 /* RemovedCardPositionInforming.swift */; };
 		7C82A01623F45F700070667B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82A01523F45F700070667B /* AppDelegate.swift */; };
 		7C82A01D23F45F700070667B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C82A01B23F45F700070667B /* Main.storyboard */; };
 		7C82A01F23F45F710070667B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C82A01E23F45F710070667B /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		7C3A25E824059B5A00C1F335 /* Set-game_stanfordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Set-game_stanfordTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C3A25EA24059B5A00C1F335 /* Set_game_stanfordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set_game_stanfordTests.swift; sourceTree = "<group>"; };
 		7C3A25EC24059B5A00C1F335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C66DC53240DCF0F00560CC6 /* RemovedCardPositionInforming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovedCardPositionInforming.swift; sourceTree = "<group>"; };
 		7C82A01223F45F700070667B /* Set-game_stanford.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Set-game_stanford.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C82A01523F45F700070667B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C82A01C23F45F700070667B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				7C12DF0B240877AB003A0959 /* MatchedCardReplacing.swift */,
 				7C12DF0F240C1CE9003A0959 /* CardTapping.swift */,
 				7C12DF0D240BFC29003A0959 /* cardsToGrid.swift */,
+				7C66DC53240DCF0F00560CC6 /* RemovedCardPositionInforming.swift */,
 			);
 			path = support;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				7CC8ADB82400916D0054BEBE /* MachineIntelligence.swift in Sources */,
 				7C3A25DA2401F09900C1F335 /* SubscriberList.swift in Sources */,
 				7CC8ADB0240086140054BEBE /* SinglePlayerGame.swift in Sources */,
+				7C66DC54240DCF0F00560CC6 /* RemovedCardPositionInforming.swift in Sources */,
 				7C12DF10240C1CE9003A0959 /* CardTapping.swift in Sources */,
 				B9A789F72406BE3800D972D8 /* FigureView.swift in Sources */,
 				7C82A03023F5C2350070667B /* Card.swift in Sources */,

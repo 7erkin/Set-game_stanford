@@ -22,9 +22,16 @@ class CardView: UIView {
         return animator
     }()
     
+    private let backgroundImage: UIImage = {
+        let image = UIImage(named: "stanford-logo")!
+        let backgroundImage = UIImage(cgImage: image.cgImage!, scale: image.scale, orientation: .up)
+        return backgroundImage
+    }()
+    
     var isChoosen = false { didSet { setNeedsDisplay() } }
     var isHinted = false { didSet { setNeedsDisplay() } }
-    var isFaceUp = false { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var isFaceUp = false { didSet {
+        setNeedsDisplay(); setNeedsLayout() } }
     var isMatched = false { didSet { setNeedsDisplay() } }
     
     private lazy var figuresView: FiguresView = {
@@ -60,8 +67,7 @@ class CardView: UIView {
         path.addClip()
         
         if !isFaceUp {
-            UIColor.red.setFill()
-            path.fill()
+            backgroundImage.draw(in: bounds)
             return
         }
         

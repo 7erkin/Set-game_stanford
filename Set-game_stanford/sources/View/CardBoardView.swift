@@ -23,31 +23,30 @@ class CardBoardView: UIStackView {
             }
         }
     }
+    
+    private var categorizedCardsIndices: ([Int], [Int], [Int]) {
+        let categorizedCardsIndices = cardsOnBoard.indices.reduce(([Int](), [Int](), [Int]())){ acc, index in
+            var copy = acc
+            let card = cardsOnBoard[index]
+            if cardsOnBoard[index].frame == CGRect.zero {
+                /* new card */
+                copy.1.append(index)
+            } else {
+                /* old card */
+                copy.0.append(index)
+                if card.isMatched {
+                    /* matched card*/
+                    copy.2.append(index)
+                }
+            }
+            return copy
+        }
+        return categorizedCardsIndices
+    }
+    
     private var cardsTranslationUnit: [Int] = []
     
-    func add(_ cardViews: [CardView]) {
-        cardViews.forEach{
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onCardTapped(_:)))
-            $0.addGestureRecognizer(tapGesture)
-            addSubview($0)
-        }
-        cardsOnBoard.append(contentsOf: cardViews)
-        cardsTranslationUnit.append(contentsOf: (cardsOnBoard.count - cardViews.count)..<cardsOnBoard.count)
-    }
-    
-    var matchedCardReplacingDelegate: MatchedCardReplacing!
-    var cardTappingDelegate: CardTapping!
-    
-    @objc private func onCardTapped(_ gesture: UITapGestureRecognizer) {
-        cardTappingDelegate.cardTapped(gesture)
-    }
-    
-    func clean() {
-        cardsOnBoard = []
-        cardsTranslationUnit = []
-    }
-    
-    private func calculateCardFrames() -> [CGRect] {
+    private var cardFrames: [CGRect] {
         let cardsCount = cardsOnBoard.count
         
         let (rowsCount, columnsCount) = cardsToGrid[cardsCount]!
@@ -66,19 +65,13 @@ class CardBoardView: UIStackView {
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configure()
-    }
-    
-    required init(coder: NSCoder) {
-        super.init(coder: coder)
-        configure()
-    }
-    
-    private func configure() {
+    private func configureCardViews() {
         let cardsShuffleGesture = UIRotationGestureRecognizer(target: self, action: #selector(shuffleCards))
         self.addGestureRecognizer(cardsShuffleGesture)
+    }
+    
+    @objc private func onCardTapped(_ gesture: UITapGestureRecognizer) {
+        cardTappingDelegate.cardTapped(gesture)
     }
     
     @objc private func shuffleCards(_ gesture: UIGestureRecognizer) {
@@ -88,56 +81,10 @@ class CardBoardView: UIStackView {
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    private func deal(cards: [CardView], on frames: [CGRect]) {
+        assert(cards.count == frames.count, "cards.count must be equal frames.count")
         
-        guard cardsOnBoard.count != 0 else { return }
-        
-        let (oldCards, newCards, matchedCards) = cardsOnBoard.reduce(([CardView](), [CardView](), [CardView]())){ acc, el in
-            var copy = acc
-            if el.frame == CGRect.zero {
-                copy.1.append(el)
-            } else {
-                copy.0.append(el)
-                if el.isMatched {
-                    copy.2.append(el)
-                }
-            }
-            return copy
-        }
-        
-        
-        
-        var frames = calculateCardFrames()
-        /* Must be set proper options */
-        oldCards.forEachWithIndex{ card, index in
-            let index = cardsTranslationUnit[index]
-            UIViewPropertyAnimator.runningPropertyAnimator(
-                withDuration: 0.5,
-                delay: 0.0,
-                options: [.allowUserInteraction],
-                animations: { card.frame = frames[index] },
-                completion: nil
-            )
-        }
-        matchedCards.forEach{ card in
-            let matchedCardTransform = CGAffineTransform(translationX: bounds.width, y: -500).rotated(by: 2 * CGFloat.pi)
-            UIView.animate(
-                withDuration: 1.0,
-                animations: {
-                    card.transform = matchedCardTransform
-                },
-                completion: {[weak self] _ in
-                    card.frame = CGRect.zero
-                    card.isFaceUp = false
-                    if card === matchedCards.last! {
-                        self?.matchedCardReplacingDelegate.replaceMatchedCards()
-                    }
-                }
-            )
-        }
-        frames = Array(frames[oldCards.count...])
-        newCards.forEachWithIndex{ card, index in
+        cards.forEachWithIndex{ card, index in
             card.frame.origin.y = bounds.height
             card.frame.origin.x = bounds.midX
             card.frame.size = CGSize(width: frames[index].width, height: frames[index].height)
@@ -157,5 +104,89 @@ class CardBoardView: UIStackView {
                 }
             )
         }
+    }
+    
+    private func updatePosition(cards: [CardView], on frames: [CGRect]) {
+        assert(cards.count == frames.count, "cards.count must be equal frames.count")
+        
+        cards.forEachWithIndex{ card, index in
+            let index = cardsTranslationUnit[index]
+            UIViewPropertyAnimator.runningPropertyAnimator(
+                withDuration: 0.5,
+                delay: 0.0,
+                options: [.allowUserInteraction],
+                animations: { card.frame = frames[index] },
+                completion: nil
+            )
+        }
+    }
+    
+    private func removeMatchedCards(_ cards: [CardView]) {
+        cards.forEach{ card in
+            let relativeCardFrame = card.convert(card.bounds, to: removedCardPositionInformingDelegate.view)
+            let destinationFrame = removedCardPositionInformingDelegate.removedCardPosition
+            var transform = CGAffineTransform(translationX: 0, y: destinationFrame.origin.y - relativeCardFrame.origin.y)
+            transform = transform.scaledBy(x: destinationFrame.width / relativeCardFrame.width, y: destinationFrame.height / relativeCardFrame.height)
+            UIView.animate(
+                withDuration: 5.0,
+                animations: {
+                    card.transform = transform
+                },
+                completion: {[weak self] _ in
+                    card.transform = .identity
+                    card.frame = CGRect.zero
+                    card.isFaceUp = false
+                    if card === cards.last! {
+                        self?.matchedCardReplacingDelegate.replaceMatchedCards()
+                    }
+                }
+            )
+        }
+    }
+    
+    var matchedCardReplacingDelegate: MatchedCardReplacing!
+    var cardTappingDelegate: CardTapping!
+    var removedCardPositionInformingDelegate: RemovedCardPositionInforming!
+    
+    func add(_ cardViews: [CardView]) {
+        cardViews.forEach{
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onCardTapped(_:)))
+            $0.addGestureRecognizer(tapGesture)
+            addSubview($0)
+        }
+        cardsOnBoard.append(contentsOf: cardViews)
+        cardsTranslationUnit.append(contentsOf: (cardsOnBoard.count - cardViews.count)..<cardsOnBoard.count)
+    }
+    
+    func clean() {
+        cardsOnBoard = []
+        cardsTranslationUnit = []
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureCardViews()
+    }
+    
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+        configureCardViews()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        guard cardsOnBoard.count != 0 else { return }
+        
+        let (oldCardsIndices, newCardsIndices, matchedCardsIndices) = categorizedCardsIndices
+        let oldCards = oldCardsIndices.map{ cardsOnBoard[$0] }
+        let newCards = newCardsIndices.map{ cardsOnBoard[$0] }
+        let matchedCards = matchedCardsIndices.map{ cardsOnBoard[$0] }
+        
+        var frames = cardFrames
+        updatePosition(cards: oldCards, on: oldCardsIndices.map{ frames[$0] })
+        removeMatchedCards(matchedCards)
+        frames = newCardsIndices.map{ frames[$0] }
+        deal(cards: newCards, on: frames)
     }
 }
